@@ -1,0 +1,1574 @@
+.tusuarioAlumnos {
+  position: relative;
+  width: 1920px;
+  height: 900px;
+  background: #e5e5e5;
+}
+
+.tframe22 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 40px 12px;
+  position: fixed;
+  width: 1920px;
+  height: 65px;
+  right: 0px;
+  top: 0px;
+  background: #f8f8f9;
+}
+
+.tframe1217 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  position: static;
+  width: 1633px;
+  height: 40px;
+  left: 40px;
+  top: 18px;
+  flex: none;
+  order: 0;
+  flex-grow: 1;
+  margin: 0px 40px;
+}
+
+.tframe1182 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+
+  position: static;
+  width: 297px;
+  height: 28px;
+  left: 0px;
+  top: 6px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 40px;
+}
+
+.topenBootcampAlumnos {
+  position: static;
+  width: 297px;
+  height: 28px;
+  left: calc(50% - 297px / 2);
+  top: 0px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+  color: #121625;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 6px;
+}
+
+.ttextoAlumnos {
+  color: green;
+  text-decoration-color: green;
+}
+
+.tframe1216 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  position: static;
+  width: 167px;
+  height: 40px;
+  left: 1713px;
+  top: 18px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 0px 40px;
+}
+.tframe1893 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 10px 0px 0px;
+  position: static;
+  width: 167px;
+  height: 40px;
+  left: 0px;
+  top: 0px;
+  background: #ffffff;
+  border-radius: 91px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 30px;
+}
+
+.tframe1200 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 10px 0px 0px;
+  position: static;
+  width: 137px;
+  height: 40px;
+  left: 0px;
+  top: 0px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 0px;
+}
+
+.tframe1283 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  position: static;
+  width: 40px;
+  height: 40px;
+  left: 0px;
+  top: 0px;
+  background: #121625;
+  border-radius: 59px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 0px;
+}
+
+.tna {
+  position: static;
+  width: 22px;
+  height: 20px;
+  left: calc(50% - 22px / 2);
+  top: 10px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 130.9%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #515561;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 10px;
+}
+
+.tusername {
+  position: static;
+  width: 72px;
+  height: 22px;
+  left: 55px;
+  top: 9px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 160%;
+  letter-spacing: 0.005em;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #121625;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 0px 15px;
+}
+
+.ticon {
+  position: static;
+  width: 20px;
+  height: 20px;
+  left: 137px;
+  top: 10px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 0px 0px;
+}
+
+.tframe1998 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  position: absolute;
+  width: 1920px;
+  height: 900px;
+  left: 0px;
+  top: 70px;
+  background: #f8f8f9;
+}
+
+.tframe2000 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 40px;
+  position: static;
+  width: 1796px;
+  height: 900px;
+  left: 62px;
+  top: 0px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 0px 0px;
+  background: #f8f8f9;
+}
+
+.tframe1673 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  position: static;
+  width: 1440px;
+  height: 750px;
+  left: 40px;
+  top: 40px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 1;
+  margin: 0px 10px;
+}
+
+.tframe1964 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  position: static;
+  width: 1440px;
+  height: 40px;
+  left: 0px;
+  top: 0px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 16px 0px;
+}
+
+.tframe2002 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  position: static;
+  width: 447px;
+  height: 40px;
+  left: 0px;
+  top: 0px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 15px;
+}
+
+.tbutton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 14px 5px 10px;
+  position: static;
+  width: 168px;
+  height: 40px;
+  left: 1178px;
+  top: 0px;
+  background: #ffffff;
+  border: 1px solid #e6e6ea;
+  box-sizing: border-box;
+  border-radius: 8px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 0px 0px;
+}
+
+.talumnos {
+  position: static;
+  width: 80px;
+  height: 20px;
+  left: 0px;
+  top: 10px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #121625;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 0px 0px 24px;
+}
+
+.tinput {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 15px;
+  position: static;
+  width: 343px;
+  height: 40px;
+  left: 104px;
+  top: 0px;
+  text-align: center;
+  background: #e6e6ea url("../images/lupa.png") no-repeat 5%;
+  border-radius: 8px;
+  border: transparent;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 0px 24px;
+}
+
+.tlupa {
+  position: static;
+  width: 20px;
+  height: 20px;
+  left: 15px;
+  top: 10px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 10px;
+}
+
+.tframe1076 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  position: static;
+  width: 1440px;
+  height: 785px;
+  left: 0px;
+  top: 56px;
+  background: #ffffff;
+  border: 1px solid #e6e6ea;
+  box-sizing: border-box;
+  border-radius: 20px;
+  flex: none;
+  order: 1;
+}
+
+.tframe1723 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  position: static;
+  width: 1440px;
+  height: 55px;
+  left: 0px;
+  top: 0px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 0px 0px;
+  border-radius: 8px;
+  border: #e5e5e5;
+}
+
+.tpaginator {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px;
+  position: static;
+  width: 1440px;
+  height: 60px;
+  left: 0px;
+  top: 725px;
+  background: #ffffff;
+  flex: none;
+  order: 2;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 0px 0px;
+}
+
+.tframe758 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: static;
+  width: 1434px;
+  height: 40px;
+  left: 0px;
+  top: 0px;
+  background: #ffffff;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 0px 0px;
+  border: #e5e5e5;
+  border-radius: 18px;
+}
+
+.tframe1077 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  position: static;
+  width: 1440px;
+  height: 684px;
+  left: 0px;
+  top: 40px;
+  overflow-y: scroll;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 0px 0px;
+  overflow: hidden;
+}
+
+.tthNombre {
+  position: static;
+  width: 260px;
+  height: 16px;
+  left: 24px;
+  top: 12px;
+  order: 0;
+  margin: 10px 0px 0px 10px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 13px;
+  text-transform: uppercase;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #a5a8b3;
+}
+
+.tthCiudad {
+  position: static;
+  width: 165px;
+  height: 16px;
+  left: 300px;
+  top: 12px;
+  order: 1;
+  margin: 10px 0px 0px 0px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 13px;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #a5a8b3;
+}
+
+.tthPais {
+  position: static;
+  width: 165px;
+  height: 16px;
+  left: 478px;
+  top: 12px;
+  order: 2;
+  margin: 10px 0px 0px 0px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 13px;
+  text-transform: uppercase;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #a5a8b3;
+}
+
+.tthTelefono {
+  position: static;
+  width: 170px;
+  height: 13px;
+  left: 656px;
+  top: 13.5px;
+  order: 3;
+  margin: 10px 0px 0px 0px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 13px;
+  text-transform: uppercase;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #a5a8b3;
+}
+
+.tthCorreo {
+  position: static;
+  width: 215px;
+  height: 16px;
+  left: 834px;
+  top: 12px;
+  order: 4;
+  margin: 10px 0px 0px 0px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 13px;
+  text-transform: uppercase;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #a5a8b3;
+}
+
+.tthEtiquetas {
+  position: static;
+  width: 230px;
+  height: 16px;
+  left: 1012px;
+  top: 12px;
+  flex: none;
+  order: 5;
+  flex-grow: 0;
+  margin: 10px 0px 0px 0px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 13px;
+  text-transform: uppercase;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #a5a8b3;
+}
+
+.ttr {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: static;
+  width: 1434px;
+  height: 56px;
+  left: 0px;
+  top: 1px;
+  background: #ffffff;
+  order: 1;
+  margin: 0px 0px;
+}
+
+.titem {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0px;
+  position: static;
+  width: 60px;
+  height: 40px;
+  left: 1262px;
+  top: 8px;
+  opacity: 0;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 0px 20px;
+}
+
+.ttdNombre {
+  position: static;
+  width: 260px;
+  height: 40px;
+  left: 0px;
+  top: 0px;
+  padding: 0px 0px 0px 10px;
+  order: 2;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #121625;
+}
+
+.ttdCiudad {
+  position: static;
+  width: 165px;
+  height: 40px;
+  left: 276px;
+  top: 0px;
+  order: 3;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #121625;
+}
+
+.ttdPais {
+  position: static;
+  width: 165px;
+  height: 40px;
+  left: 454px;
+  top: 0px;
+  order: 4;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #121625;
+}
+
+.ttdTelefono {
+  position: static;
+  width: 170px;
+  height: 40px;
+  left: 632px;
+  top: 0px;
+  order: 5;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #121625;
+}
+
+.ttdCorreo {
+  position: static;
+  width: 210px;
+  height: 40px;
+  left: 810px;
+  top: 0px;
+  order: 6;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #121625;
+}
+
+.ttdEtiquetas {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  position: static;
+  width: 230px;
+  height: 40px;
+  left: 988px;
+  top: 0px;
+  flex: none;
+  order: 7;
+  flex-grow: 0;
+  margin: 0px;
+}
+
+.tetiqueta {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 6px;
+  background: #32d5a4;
+  border-radius: 6px;
+  color: #ffffff;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 6px;
+}
+
+.tframe2001 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0px;
+  position: static;
+  width: 282px;
+  height: 21px;
+  left: 24px;
+  top: 28px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 0px 0px;
+  margin-bottom: 10px;
+}
+
+.tfiltros {
+  position: static;
+  width: 172px;
+  height: 21px;
+  left: calc(50% - 172px / 2 - 55px);
+  top: 0px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #121625;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 0px;
+}
+
+.tborrar {
+  position: static;
+  width: 24px;
+  height: 24px;
+  left: 262px;
+  top: 0.5px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 0px 0px;
+}
+
+.tframe1999 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 14px 0px 14px;
+  position: static;
+  width: 282px;
+  height: 600px;
+  left: 24px;
+  top: 77px;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 28px 0px;
+  margin-top: 0px;
+  background-color: white;
+}
+
+.tframe1380 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  position: static;
+  width: 282px;
+  height: 138px;
+  left: 0px;
+  top: 0px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 0px 0px 0px 0px;
+}
+
+.tframe1433 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  position: static;
+  width: 282px;
+  height: 68px;
+  left: 0px;
+  top: 0px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 15px 0px;
+}
+
+.tetiquetas {
+  position: static;
+  width: 282px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: -0.01em;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #121625;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 12px 0px;
+}
+
+.tframe1328 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  position: static;
+  width: 282px;
+  height: 40px;
+  left: 0px;
+  top: 28px;
+  background: #e6e6ea;
+  border-radius: 8px;
+  border: transparent;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 0px 0px;
+}
+
+.tframe1430 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  position: static;
+  width: 282px;
+  height: 55px;
+  left: 0px;
+  top: 83px;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 15px 0px;
+}
+
+.tframe1401 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  position: static;
+  width: 282px;
+  height: 24px;
+  left: 0px;
+  top: 0px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 7px 0px;
+}
+
+.ttagReact {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 3px 6px 3px 10px;
+  position: static;
+  width: 77px;
+  height: 24px;
+  left: 109px;
+  top: 0px;
+  background: #e6e6ea;
+  border-radius: 20px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 0px 6px;
+}
+.treact {
+  position: static;
+  width: 39px;
+  height: 14px;
+  left: calc(50% - 39px / 2 - 9px);
+  top: 5px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: uppercase;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #121625;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 4px;
+}
+
+.tcruz {
+  position: static;
+  width: 18px;
+  height: 18px;
+  left: 53px;
+  top: 3px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 0px 4px;
+}
+
+.ttagHtml {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 3px 6px 3px 10px;
+  position: static;
+  width: 103px;
+  height: 24px;
+  left: 0px;
+  top: 0px;
+  background: #e6e6ea;
+  border-radius: 20px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 6px;
+}
+
+.thtml {
+  position: static;
+  width: 65px;
+  height: 14px;
+  left: calc(50% - 65px / 2 - 9px);
+  top: 5px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: uppercase;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #121625;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 4px;
+}
+
+.tframe1403 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  position: static;
+  width: 282px;
+  height: 24px;
+  left: 0px;
+  top: 31px;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 7px 0px;
+}
+
+.ttagAngular {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 3px 6px 3px 10px;
+  position: static;
+  width: 96px;
+  height: 24px;
+  left: 0px;
+  top: 0px;
+  background: #e6e6ea;
+  border-radius: 20px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 6px;
+}
+
+.tangular {
+  position: static;
+  width: 58px;
+  height: 14px;
+  left: calc(50% - 58px / 2 - 9px);
+  top: 5px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: uppercase;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #121625;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 4px;
+}
+
+.tframe14332 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  position: static;
+  width: 282px;
+  height: 68px;
+  left: 0px;
+  top: 163px;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 40px 0px 0px 0px;
+}
+
+.tpais {
+  position: static;
+  width: 282px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: -0.01em;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #121625;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 24px 0px 0px 0px;
+}
+
+.tframe13282 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  position: static;
+  width: 282px;
+  height: 40px;
+  left: 0px;
+  top: 28px;
+  background: #e6e6ea;
+  border-radius: 8px;
+  border: transparent;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 12px 0px;
+}
+
+.tframe1434 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  position: static;
+  width: 282px;
+  height: 68px;
+  left: 0px;
+  top: 256px;
+  flex: none;
+  order: 2;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 24px 0px;
+}
+
+.tframe13283 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  position: static;
+  width: 282px;
+  height: 40px;
+  left: 0px;
+  top: 28px;
+  background: #e6e6ea;
+  border-radius: 8px;
+  border: transparent;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 0px 0px;
+}
+
+.tframe1422 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 28px 13px 24px;
+  position: static;
+  width: 330px;
+  height: 670px;
+  left: 1426px;
+  top: 40px;
+  background: #ffffff;
+  border: 1px solid #e6e6ea;
+  box-sizing: border-box;
+  border-radius: 20px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 0px 24px;
+}
+
+.tciudad {
+  position: static;
+  width: 282px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: -0.01em;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #121625;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 12px 0px;
+}
+
+.tframe14222 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 14px 0px 0px;
+  position: static;
+  width: 282px;
+  height: 86px;
+  left: 0px;
+  top: 349px;
+  flex: none;
+  order: 3;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 24px 0px 10px 0px;
+  background-color: white;
+}
+
+.tpresencialDistancia {
+  position: static;
+  width: 282px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: -0.01em;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #121625;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 0px 0px;
+}
+
+.tframe1421 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  position: static;
+  width: 282px;
+  height: 58px;
+  left: 0px;
+  top: 28px;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 0px 0px;
+}
+
+.tframe1414 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  position: static;
+  width: 282px;
+  height: 24px;
+  left: 0px;
+  top: 0px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 10px 0px;
+}
+
+.tcheckPresencial {
+  position: static;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  margin: 8px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.tframe1415 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  position: static;
+  width: 282px;
+  height: 24px;
+  left: 0px;
+  top: 34px;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 0px 0px;
+}
+
+.tcheckRemoto {
+  position: static;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 8px;
+}
+
+.tremoto {
+  position: static;
+  width: 250px;
+  height: 18px;
+  left: 32px;
+  top: 3px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #121625;
+  flex: none;
+  order: 1;
+  flex-grow: 1;
+  margin: 0px 0px;
+}
+
+.tframe1435 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  position: static;
+  width: 282px;
+  height: 86px;
+  left: 0px;
+  top: 460px;
+  flex: none;
+  order: 4;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 0px 0px;
+}
+
+.tposibilidadTraslado {
+  position: static;
+  width: 282px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: -0.01em;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #121625;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 10px 0px 0px 0px;
+}
+
+.tframe14212 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  position: static;
+  width: 282px;
+  height: 58px;
+  left: 0px;
+  top: 28px;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 0px 0px;
+}
+
+.tframe14142 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  position: static;
+  width: 282px;
+  height: 24px;
+  left: 0px;
+  top: 0px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 5px 0px 5px 0px;
+}
+
+.tcheckSi {
+  position: static;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 8px;
+}
+
+.tsi {
+  position: static;
+  width: 250px;
+  height: 18px;
+  left: 32px;
+  top: 3px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #121625;
+  flex: none;
+  order: 1;
+  flex-grow: 1;
+  margin: 0px 8px;
+}
+
+.tframe14152 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  position: static;
+  width: 282px;
+  height: 24px;
+  left: 0px;
+  top: 34px;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 5px 0px;
+}
+
+.tcheckNo {
+  position: static;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 8px;
+}
+
+.tno {
+  position: static;
+  width: 250px;
+  height: 18px;
+  left: 32px;
+  top: 3px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #121625;
+  flex: none;
+  order: 1;
+  flex-grow: 1;
+  margin: 0px 8px;
+}
+
+tr {
+  border: solid;
+  border-width: 1px 0;
+  color: #e5e5e5;
+  border-right: 1px;
+  cursor: pointer;
+}
+
+.tinput::placeholder {
+  text-align: center;
+  color: rgb(148, 148, 148);
+  font-size: 1em;
+}
+
+.tthNombre:hover {
+  cursor: pointer;
+}
+.tthCiudad:hover {
+  cursor: pointer;
+}
+.tthPais:hover {
+  cursor: pointer;
+}
+.tthTelefono:hover {
+  cursor: pointer;
+}
+.tthCorreo:hover {
+  cursor: pointer;
+}
+.tthEtiquetas:hover {
+  cursor: pointer;
+}
+.tform2 {
+  display: block;
+  background-color: #03afbb;
+  max-width: 480px;
+  width: 90%;
+  margin: 60px auto;
+  text-align: center;
+  border-radius: 12px;
+  padding-bottom: 40px;
+}
+
+.tform2 > input {
+  display: inline-block;
+  padding: 8px;
+  width: 68%;
+  margin-top: 30px;
+  text-align: center;
+  border-radius: 8px;
+  border-width: 0 0 0.1em;
+  border-color: #fff;
+  border-style: solid;
+  background: transparent;
+  color: #fff;
+}
+.tform2 > input::placeholder {
+  text-align: center;
+  color: #fff;
+  font-size: 1.1em;
+}
+
+.tform2 > button {
+  width: 68%;
+  height: 34px;
+  font-size: 1.1em;
+  margin-top: 32px;
+  text-align: center;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.tform2 > button:hover {
+  background-color: #00545a;
+  color: #fff;
+}
+
+.tbtn__orden {
+  width: 8%;
+  height: 54px;
+  font-size: 1.1em;
+  margin-top: 32px;
+  text-align: center;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.tranking {
+  display: block;
+  margin: 0 auto;
+  padding: 29px;
+  border-spacing: 18px;
+}
+
+.tcabeceroTitulos {
+  font-size: 2em;
+}
+
+#btn {
+  margin: 0 auto;
+  width: 120px;
+  height: 52px;
+  border-radius: 18px;
+  border: none;
+  background-color: #03afbb;
+  color: #fff;
+  margin-top: -12px;
+  font-size: 1em;
+  font-weight: 900;
+}
+#btn:hover {
+  background-color: rgb(255, 251, 17);
+  color: #000;
+}
+.orden:hover {
+  cursor: pointer;
+}
