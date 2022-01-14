@@ -20,7 +20,7 @@ const Alumno = (props) => {
             </div>
             <div className="aframe1986">
             <button className="tbuttonvolver" onClick={()=> setBack(true)}>Volver</button>
-              <p className="anombreAlumno">Nombre Alumno</p>
+              <p className="anombreAlumno">{props.nombre}</p>
               <div className="aframe1927">
                 <img src={ubicacion} alt="ubicacion" className="aicon" />
                 <div className="aframe19272">
