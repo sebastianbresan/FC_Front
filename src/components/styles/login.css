@@ -388,6 +388,10 @@
   margin: 0px 0px;
 }
 
+.button:hover{
+ cursor: pointer;
+}
+
 .iniciarsesion {
   position: static;
   width: auto;

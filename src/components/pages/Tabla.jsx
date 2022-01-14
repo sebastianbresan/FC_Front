@@ -3,8 +3,12 @@ import FormAdd from "../comp/formAdd";
 import Formfiltro from "../comp/formFiltro";
 import Headertabla from "../comp/headerTabla";
 import Alumno from "./Alumno";
+import { useNavigate } from "react-router-dom";
 
 const Tabla = () => {
+
+  const userLogged = window.localStorage.getItem("usuario");
+
   let id = 5;
 
   let estadoNombre = false;
@@ -346,6 +350,14 @@ const Tabla = () => {
 
   const [detalle, setDetalle] = useState(false);
 
+  let navigate = useNavigate();
+
+  const logout = () => {
+    window.localStorage.clear();
+    navigate("../login");
+
+  };
+
   useEffect(() => {
     function cargaInicial() {
       añadirAlumnos();
@@ -381,6 +393,10 @@ const Tabla = () => {
                   onKeyUp={() => buscar()}
                 />
               </div>
+              <button className="tbutton" onClick={logout}>
+                Logout
+              </button>
+              <button className="tbutton">{userLogged}</button>
               <button className="tbutton" onClick={() => setAdd(!add)}>
                 + Añadir alumno
               </button>

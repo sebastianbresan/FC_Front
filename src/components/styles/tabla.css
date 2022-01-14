@@ -303,6 +303,10 @@
   margin: 0px 0px;
 }
 
+.tbutton:hover{
+  cursor: pointer;
+}
+
 .talumnos {
   position: static;
   width: 80px;
