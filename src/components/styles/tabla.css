@@ -305,6 +305,7 @@
 
 .tbutton:hover{
   cursor: pointer;
+  background-color: #32d5a4;
 }
 
 .talumnos {

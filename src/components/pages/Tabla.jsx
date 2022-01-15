@@ -4,30 +4,18 @@ import Formfiltro from "../comp/formFiltro";
 import Headertabla from "../comp/headerTabla";
 import Alumno from "./Alumno";
 import { useNavigate } from "react-router-dom";
+import AlumnoService from "../../service/AlumnoService.js";
+import UsuarioService from "../../service/UsuarioService.js";
 
 const Tabla = () => {
-
-  const userLogged = window.localStorage.getItem("usuario");
-
+  let navigate = useNavigate();
   let id = 5;
-
   let estadoNombre = false;
   let estadoCiudad = false;
   let estadoPais = false;
   let estadoTelefono = false;
-  let estadoCorreo = false;
+  let estadoEmail = false;
   let estadoEtiquetas = false;
-  const arEtiquetas = [
-    "HTML&CSS",
-    "JAVA",
-    "PYTHON",
-    "ANGULAR",
-    "REACT",
-    "BIG DATA",
-    "TYPESCRYPT",
-    "JAVASCRYPT",
-    "GO",
-  ];
 
   class Candidato {
     constructor(id, nombre, ciudad, pais, telefono, correo) {
@@ -101,62 +89,63 @@ const Tabla = () => {
     }
   }
 
-  function añadirAlumnos() {
-    const candidato1 = new Candidato(
-      1,
-      "Esteban Gimenez",
-      "Barcelona",
-      "España",
-      "+34 345 345 345",
-      "sbarcelona@gmail.com"
-    );
-    id++;
+  // function añadirAlumnos() {
+  //   const candidato1 = new Candidato(
+  //     1,
+  //     "Esteban Gimenez",
+  //     "Barcelona",
+  //     "España",
+  //     "+34 345 345 345",
+  //     "sbarcelona@gmail.com"
+  //   );
+  //   id++;
 
-    candidato1.etiquetas.push(arEtiquetas[0], arEtiquetas[1], arEtiquetas[2]);
-    alumnos.push(candidato1);
-    const candidato2 = new Candidato(
-      2,
-      "Juan Martin Gimenez",
-      "Madrid",
-      "España",
-      "+34 432 345 345",
-      "smadrid@gmail.com"
-    );
-    id++;
-    candidato2.etiquetas.push(arEtiquetas[3], arEtiquetas[4], arEtiquetas[5]);
-    alumnos.push(candidato2);
-    const candidato3 = new Candidato(
-      3,
-      "Jose Rodruigo Diaz",
-      "Oviedo",
-      "España",
-      "+34 444 345 345",
-      "soviedo@gmail.com"
-    );
-    id++;
-    candidato3.etiquetas.push(arEtiquetas[2], arEtiquetas[4], arEtiquetas[6]);
-    alumnos.push(candidato3);
-    const candidato4 = new Candidato(
-      4,
-      "Pedro Gabriel Machado",
-      "Rosario",
-      "Argentina",
-      "+34 665 345 345",
-      "srosario@gmail.com"
-    );
-    id++;
-    candidato4.etiquetas.push(arEtiquetas[6], arEtiquetas[7], arEtiquetas[8]);
-    alumnos.push(candidato4);
-    ordenar();
-  }
+  //   candidato1.etiquetas.push(arEtiquetas[0], arEtiquetas[1], arEtiquetas[2]);
+  //   alumnos.push(candidato1);
+  //   const candidato2 = new Candidato(
+  //     2,
+  //     "Juan Martin Gimenez",
+  //     "Madrid",
+  //     "España",
+  //     "+34 432 345 345",
+  //     "smadrid@gmail.com"
+  //   );
+  //   id++;
+  //   candidato2.etiquetas.push(arEtiquetas[3], arEtiquetas[4], arEtiquetas[5]);
+  //   alumnos.push(candidato2);
+  //   const candidato3 = new Candidato(
+  //     3,
+  //     "Jose Rodruigo Diaz",
+  //     "Oviedo",
+  //     "España",
+  //     "+34 444 345 345",
+  //     "soviedo@gmail.com"
+  //   );
+  //   id++;
+  //   candidato3.etiquetas.push(arEtiquetas[2], arEtiquetas[4], arEtiquetas[6]);
+  //   alumnos.push(candidato3);
+  //   const candidato4 = new Candidato(
+  //     4,
+  //     "Pedro Gabriel Machado",
+  //     "Rosario",
+  //     "Argentina",
+  //     "+34 665 345 345",
+  //     "srosario@gmail.com"
+  //   );
+  //   id++;
+  //   candidato4.etiquetas.push(arEtiquetas[6], arEtiquetas[7], arEtiquetas[8]);
+  //   alumnos.push(candidato4);
+  //   ordenar();
+  // }
 
   function vaciar() {
     document.getElementById("ttabla2").innerHTML = "";
   }
 
   function ordenar() {
+    vaciar();
     let tabla = document.getElementById(`ttabla2`);
-    alumnos.map(
+    alumnosAPI.map(
       (user) =>
         (tabla.innerHTML +=
           `<tr class="ttr" id="` +
@@ -175,33 +164,69 @@ const Tabla = () => {
           user.telefono +
           `</td>
         <td class="ttdCorreo">` +
-          user.correo +
+          user.email +
           `</td>
         <td class="ttdEtiquetas">` +
           `<p class="tetiqueta">` +
-          user.etiquetas[0] +
+          user.etiquetas[0].lenguaje +
           `</p>` +
           `<p class="tetiqueta">` +
-          user.etiquetas[1] +
+          user.etiquetas[1].lenguaje +
           `</p>` +
           `<p class="tetiqueta">` +
-          user.etiquetas[2] +
+          user.etiquetas[2].lenguaje +
           `</p>` +
           `</td>
     </tr>`)
     );
+    onclick();
   }
+  const [add, setAdd] = useState(false);
+  const [detalle, setDetalle] = useState(false);
+  const [alumnos, setAlumnos] = useState([]);
+  const [alumnosAPI, setAlumnosAPI] = useState([]);
+  const [usuariosAPI, setUsuariosAPI] = useState("");
+  const [person, setPerson] = useState({
+    nombre: "",
+    ciudad: "",
+    pais: "",
+    telefono: "",
+    correo: "",
+    traslado: false,
+    presencialidad: "",
+    etiquetas: []
+  });
+  const userLogged = localStorage.getItem("usuario");
+
+  function promesa () {
+      let promise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const respuesta = UsuarioService.findAll();
+        resolve(respuesta);
+        reject("Error en la peticion al servidor");
+      }, 200);
+    });
+    promise
+      .then((respuesta) => {
+        setAlumnosAPI(respuesta.data[0].alumnos)
+        setUsuariosAPI(respuesta.data[0].email)
+        ordenar();
+      })
+      .catch((error) => {
+        alert(error);
+      });
+    }
 
   function ordenarNombre() {
     vaciar();
     if (!estadoNombre) {
-      alumnos.sort((a, b) => {
+      alumnosAPI.sort((a, b) => {
         if (a.nombre < b.nombre) return -1;
         else return 1;
       });
       estadoNombre = true;
     } else {
-      alumnos.sort((a, b) => {
+      alumnosAPI.sort((a, b) => {
         if (a.nombre < b.nombre) return 1;
         else return -1;
       });
@@ -209,17 +234,16 @@ const Tabla = () => {
     }
     ordenar();
   }
-
   function ordenarCiudad() {
     vaciar();
     if (!estadoCiudad) {
-      alumnos.sort((a, b) => {
+      alumnosAPI.sort((a, b) => {
         if (a.ciudad < b.ciudad) return -1;
         else return 1;
       });
       estadoCiudad = true;
     } else {
-      alumnos.sort((a, b) => {
+      alumnosAPI.sort((a, b) => {
         if (a.ciudad < b.ciudad) return 1;
         else return -1;
       });
@@ -227,17 +251,16 @@ const Tabla = () => {
     }
     ordenar();
   }
-
   function ordenarPais() {
     vaciar();
     if (!estadoPais) {
-      alumnos.sort((a, b) => {
+      alumnosAPI.sort((a, b) => {
         if (a.pais < b.pais) return -1;
         else return 1;
       });
       estadoPais = true;
     } else {
-      alumnos.sort((a, b) => {
+      alumnosAPI.sort((a, b) => {
         if (a.pais < b.pais) return 1;
         else return -1;
       });
@@ -248,13 +271,13 @@ const Tabla = () => {
   function ordenarTelefono() {
     vaciar();
     if (!estadoTelefono) {
-      alumnos.sort((a, b) => {
+      alumnosAPI.sort((a, b) => {
         if (a.telefono < b.telefono) return -1;
         else return 1;
       });
       estadoTelefono = true;
     } else {
-      alumnos.sort((a, b) => {
+      alumnosAPI.sort((a, b) => {
         if (a.telefono < b.telefono) return 1;
         else return -1;
       });
@@ -262,35 +285,33 @@ const Tabla = () => {
     }
     ordenar();
   }
-
-  function ordenarCorreo() {
+  function ordenarEmail() {
     vaciar();
-    if (!estadoCorreo) {
-      alumnos.sort((a, b) => {
-        if (a.correo < b.correo) return -1;
+    if (!estadoEmail) {
+      alumnosAPI.sort((a, b) => {
+        if (a.email < b.email) return -1;
         else return 1;
       });
-      estadoCorreo = true;
+      estadoEmail = true;
     } else {
-      alumnos.sort((a, b) => {
-        if (a.correo < b.correo) return 1;
+      alumnosAPI.sort((a, b) => {
+        if (a.email < b.email) return 1;
         else return -1;
       });
-      estadoCorreo = false;
+      estadoEmail = false;
     }
     ordenar();
   }
-
   function ordenarEtiquetas() {
     vaciar();
     if (!estadoEtiquetas) {
-      alumnos.sort((a, b) => {
+      alumnosAPI.sort((a, b) => {
         if (a.etiquetas < b.etiquetas) return -1;
         else return 1;
       });
       estadoEtiquetas = true;
     } else {
-      alumnos.sort((a, b) => {
+      alumnosAPI.sort((a, b) => {
         if (a.etiquetas < b.etiquetas) return 1;
         else return -1;
       });
@@ -298,7 +319,6 @@ const Tabla = () => {
     }
     ordenar();
   }
-
   function buscar() {
     var tabla = document.getElementById("ttabla2");
     var busqueda = document.getElementById("tbusqueda").value.toLowerCase();
@@ -321,50 +341,27 @@ const Tabla = () => {
       }
     }
   }
-
-  const [add, setAdd] = useState(false);
   function mostrarOcultar() {
     setAdd(!add);
   }
-
-  const [alumnos, setAlumnos] = useState([]);
-
-  const [person, setPerson] = useState({
-    nombre: "",
-    ciudad: "",
-    pais: "",
-    telefono: "",
-    correo: "",
-  });
-
   function onclick() {
     var tabla = document.getElementById("ttabla2");
     for (let i = 0; i < tabla.rows.length; i++) {
       let doc = document.getElementById(i + 1);
       doc.onclick = function () {
-        setPerson(alumnos[i]);
+        setPerson(alumnosAPI[i]);
         setDetalle(true);
       };
     }
   }
-
-  const [detalle, setDetalle] = useState(false);
-
-  let navigate = useNavigate();
-
   const logout = () => {
-    window.localStorage.clear();
+    
     navigate("../login");
-
   };
 
   useEffect(() => {
-    function cargaInicial() {
-      añadirAlumnos();
-      onclick();
-    }
-    cargaInicial();
-  }, [setAlumnos]);
+    promesa();
+  }, []);
 
   return detalle ? (
     <Alumno
@@ -372,7 +369,8 @@ const Tabla = () => {
       ciudad={person.ciudad}
       pais={person.pais}
       telefono={person.telefono}
-      correo={person.correo}
+      email={person.email}
+      etiquetas={person.etiquetas}
     />
   ) : (
     <div>
@@ -396,7 +394,12 @@ const Tabla = () => {
               <button className="tbutton" onClick={logout}>
                 Logout
               </button>
-              <button className="tbutton">{userLogged}</button>
+              <button className="tbutton" onClick={()=> promesa()}>
+                Cargar Alumnos
+              </button>
+              <p className="tbutton" disabled>
+                {usuariosAPI}
+              </p>
               <button className="tbutton" onClick={() => setAdd(!add)}>
                 + Añadir alumno
               </button>
@@ -429,7 +432,7 @@ const Tabla = () => {
                     >
                       TELEFONO
                     </td>
-                    <td className="tthCorreo" onClick={() => ordenarCorreo()}>
+                    <td className="tthCorreo" onClick={() => ordenarEmail()}>
                       CORREO ELECTRONICO ↑↓
                     </td>
                     <td

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import ubicacion from "../images/ubicacion.png";
 import cloud from "../images/cloud.png";
 import borrar from "../images/borrar.png";
@@ -7,10 +7,9 @@ import PropTypes from "prop-types";
 import Tabla from "./Tabla";
 
 const Alumno = (props) => {
-
   const [back, setBack] = useState(false);
 
-  return  !back ? (
+  return !back ? (
     <div className="fondoAlumno">
       <div className="aframe2045">
         <div className="aframe2005">
@@ -19,7 +18,9 @@ const Alumno = (props) => {
               <div className="acover"></div>
             </div>
             <div className="aframe1986">
-            <button className="tbuttonvolver" onClick={()=> setBack(true)}>Volver</button>
+              <button className="tbuttonvolver" onClick={() => setBack(true)}>
+                Volver
+              </button>
               <p className="anombreAlumno">{props.nombre}</p>
               <div className="aframe1927">
                 <img src={ubicacion} alt="ubicacion" className="aicon" />
@@ -54,7 +55,7 @@ const Alumno = (props) => {
                 <input
                   type="text"
                   className="aframe13283"
-                  defaultValue={props.correo}
+                  defaultValue={props.email}
                 />
               </div>
             </div>
@@ -120,27 +121,22 @@ const Alumno = (props) => {
               </div>
               <div className="aframe1430">
                 <div className="aframe1401">
-                  <div className="atagHtml">
-                    <p className="ahtml">HTML&CSS</p>
-                    <img src={cruz} alt="cruz" className="aiconHtml" />
-                  </div>
-                  <div className="atagReact">
-                    <p className="areact">REACT</p>
-                    <img src={cruz} alt="cruz" className="aiconReact" />
-                  </div>
-                </div>
-                <div className="aframe1403">
-                  <div className="atagAngular">
-                    <p className="aangular">ANGULAR</p>
-                    <img src={cruz} alt="cruz" className="aiconAngular" />
-                  </div>
+                  {props.etiquetas.map((user) => (
+                    <div key={user.lenguaje} className="atagHtml">
+                      <p className="aangular">{user.lenguaje}</p>
+                      <img src={cruz} alt="cruz" className="aiconAngular" />
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div> ) : (<Tabla/>)
+    </div>
+  ) : (
+    <Tabla />
+  );
 };
 
 Alumno.propTypes = {
@@ -148,7 +144,10 @@ Alumno.propTypes = {
   ciudad: PropTypes.string,
   pais: PropTypes.string,
   telefono: PropTypes.string,
-  correo: PropTypes.string,
+  email: PropTypes.string,
+  traslado: PropTypes.bool,
+  presencialidad: PropTypes.string,
+  etiquetas: PropTypes.array,
 };
 
 export default Alumno;
