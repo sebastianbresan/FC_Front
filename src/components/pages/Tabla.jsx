@@ -146,10 +146,10 @@ const Tabla = () => {
     vaciar();
     let tabla = document.getElementById(`ttabla2`);
     alumnosAPI.map(
-      (user) =>
+      (user, i) =>
         (tabla.innerHTML +=
           `<tr class="ttr" id="` +
-          user.id +
+          i +
           `">
         <td class="ttdNombre">` +
           user.nombre +
@@ -191,25 +191,26 @@ const Tabla = () => {
     ciudad: "",
     pais: "",
     telefono: "",
-    correo: "",
+    email: "",
     traslado: false,
     presencialidad: "",
     etiquetas: []
   });
-  const userLogged = localStorage.getItem("usuario");
 
-  function promesa () {
+  const userLogged = sessionStorage.getItem("usuario");
+
+  const promesa = () => {
       let promise = new Promise((resolve, reject) => {
       setTimeout(() => {
-        const respuesta = UsuarioService.findAll();
+        const respuesta = UsuarioService.findByEmail(userLogged);
         resolve(respuesta);
         reject("Error en la peticion al servidor");
       }, 200);
     });
     promise
       .then((respuesta) => {
-        setAlumnosAPI(respuesta.data[0].alumnos)
-        setUsuariosAPI(respuesta.data[0].email)
+        setAlumnosAPI(respuesta.data.alumnos)
+        setUsuariosAPI(respuesta.data.email)
         ordenar();
       })
       .catch((error) => {
@@ -345,9 +346,9 @@ const Tabla = () => {
     setAdd(!add);
   }
   function onclick() {
-    var tabla = document.getElementById("ttabla2");
+    const tabla = document.getElementById("ttabla2");
     for (let i = 0; i < tabla.rows.length; i++) {
-      let doc = document.getElementById(i + 1);
+      const doc = document.getElementById(i);
       doc.onclick = function () {
         setPerson(alumnosAPI[i]);
         setDetalle(true);
@@ -355,7 +356,7 @@ const Tabla = () => {
     }
   }
   const logout = () => {
-    
+    sessionStorage.clear();
     navigate("../login");
   };
 
@@ -370,6 +371,8 @@ const Tabla = () => {
       pais={person.pais}
       telefono={person.telefono}
       email={person.email}
+      presencialidad={person.presencialidad}
+      traslado={person.traslado}
       etiquetas={person.etiquetas}
     />
   ) : (

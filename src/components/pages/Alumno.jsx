@@ -31,7 +31,7 @@ const Alumno = (props) => {
                   <p className="abarra">|</p>
                 </div>
                 <div className="aframe1926">
-                  <p className="aespaña">España</p>
+                  <p className="aespaña">{props.pais}</p>
                 </div>
               </div>
             </div>
@@ -86,7 +86,7 @@ const Alumno = (props) => {
                   name="traslado"
                   id="traslado"
                   className="aframe13286"
-                  defaultValue="Si"
+                  defaultValue={props.traslado? "Si" : "No"}
                 />
               </div>
               <div className="aframe2025">
@@ -95,7 +95,7 @@ const Alumno = (props) => {
                   name="presencialidad"
                   id="presencialidad"
                   className="aframe13287"
-                  defaultValue="Presencial"
+                  defaultValue={props.presencialidad}
                 />
               </div>
             </div>
@@ -145,8 +145,8 @@ Alumno.propTypes = {
   pais: PropTypes.string,
   telefono: PropTypes.string,
   email: PropTypes.string,
-  traslado: PropTypes.bool,
   presencialidad: PropTypes.string,
+  traslado: PropTypes.bool,
   etiquetas: PropTypes.array,
 };
 

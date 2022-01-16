@@ -13,6 +13,7 @@ function App() {
     <Routes>
      <Route path="/tabla" element={<Tabla/>} />
      <Route path="/login" element={<Login/>} />
+     <Route path="/" element={<Tabla />} />
      </Routes> 
        <Login />
     </div>

@@ -26,11 +26,11 @@ const Login = () => {
   let navigate = useNavigate();
 
   const saveUsuario = () => {
-    var data = { email: user.email, password: user.password };
+    const data = { email: user.email, password: user.password };
     UsuarioService.login(data)
       .then((response) => {
         setUsuario({ email: response.data });
-        localStorage.setItem("usuario", response.data);
+        sessionStorage.setItem("usuario", response.data);
         setLogged(true);
         navigate("../tabla")
       })
