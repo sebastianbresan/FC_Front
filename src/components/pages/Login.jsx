@@ -16,8 +16,6 @@ const Login = () => {
 
   const [user, setUser] = useState(User);
 
-  const [usuario, setUsuario] = useState(Usuario);
-
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUser({ ...user, [name]: value });
@@ -29,8 +27,7 @@ const Login = () => {
     const data = { email: user.email, password: user.password };
     UsuarioService.login(data)
       .then((response) => {
-        setUsuario({ email: response.data });
-        sessionStorage.setItem("usuario", response.data);
+        sessionStorage.setItem("email", response.data.email);
         setLogged(true);
         navigate("../tabla")
       })

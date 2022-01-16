@@ -9,7 +9,6 @@ import UsuarioService from "../../service/UsuarioService.js";
 
 const Tabla = () => {
   let navigate = useNavigate();
-  let id = 5;
   let estadoNombre = false;
   let estadoCiudad = false;
   let estadoPais = false;
@@ -17,77 +16,77 @@ const Tabla = () => {
   let estadoEmail = false;
   let estadoEtiquetas = false;
 
-  class Candidato {
-    constructor(id, nombre, ciudad, pais, telefono, correo) {
-      this.id = id;
-      this.nombre = nombre;
-      this.ciudad = ciudad;
-      this.pais = pais;
-      this.telefono = telefono;
-      this.correo = correo;
-      this.etiquetas = [];
-    }
-  }
+  // class Candidato {
+  //   constructor(id, nombre, ciudad, pais, telefono, correo) {
+  //     this.id = id;
+  //     this.nombre = nombre;
+  //     this.ciudad = ciudad;
+  //     this.pais = pais;
+  //     this.telefono = telefono;
+  //     this.correo = correo;
+  //     this.etiquetas = [];
+  //   }
+  // }
 
-  function flocal() {
-    let nombreInput = document.getElementById(`tnombre`).value;
-    let ciudadInput = document.getElementById(`tciudad`).value;
-    let paisInput = document.getElementById(`tpais`).value;
-    let telefonoInput = document.getElementById(`ttelefono`).value;
-    let correoInput = document.getElementById(`tcorreo`).value;
-    let etiquetasInput = document.getElementById(`tetiquetas`).value;
+  // function flocal() {
+  //   let nombreInput = document.getElementById(`tnombre`).value;
+  //   let ciudadInput = document.getElementById(`tciudad`).value;
+  //   let paisInput = document.getElementById(`tpais`).value;
+  //   let telefonoInput = document.getElementById(`ttelefono`).value;
+  //   let correoInput = document.getElementById(`tcorreo`).value;
+  //   let etiquetasInput = document.getElementById(`tetiquetas`).value;
 
-    if (nombreInput === "") {
-      alert("Debe rellenar el nombre correctamente");
-    } else if (ciudadInput === "") {
-      alert("Debe rellenar la ciudad correctamente");
-    } else if (paisInput === "") {
-      alert("Debe rellenar el pais correctamente");
-    } else if (telefonoInput === "") {
-      alert("Debe rellenar el telefono correctamente");
-    } else if (correoInput === "") {
-      alert("Debe rellenar el email correctamente");
-    } else {
-      const candidato = new Candidato(
-        id,
-        nombreInput,
-        ciudadInput,
-        paisInput,
-        telefonoInput,
-        correoInput,
-        etiquetasInput
-      );
-      alumnos.push(candidato);
-      document.getElementById(`ttabla2`).innerHTML +=
-        `<tr class="ttr" id="` +
-        candidato.id +
-        `">
-    <td class="ttdNombre">` +
-        nombreInput +
-        `</td>
-      <td class="ttdCiudad">` +
-        ciudadInput +
-        `</td>
-      <td class="ttdPais">` +
-        paisInput +
-        `</td>
-      <td class="ttdTelefono">` +
-        telefonoInput +
-        `</td>
-      <td class="ttdCorreo">` +
-        correoInput +
-        `</td>
-      <td class="ttdEtiquetas">` +
-        `<p class="tetiqueta">` +
-        etiquetasInput +
-        `</p>` +
-        `</td>
-  </tr>`;
-      document.getElementById(`tformulario`).reset();
-      mostrarOcultar();
-      onclick();
-    }
-  }
+  //   if (nombreInput === "") {
+  //     alert("Debe rellenar el nombre correctamente");
+  //   } else if (ciudadInput === "") {
+  //     alert("Debe rellenar la ciudad correctamente");
+  //   } else if (paisInput === "") {
+  //     alert("Debe rellenar el pais correctamente");
+  //   } else if (telefonoInput === "") {
+  //     alert("Debe rellenar el telefono correctamente");
+  //   } else if (correoInput === "") {
+  //     alert("Debe rellenar el email correctamente");
+  //   } else {
+  //     const candidato = new Candidato(
+  //       id,
+  //       nombreInput,
+  //       ciudadInput,
+  //       paisInput,
+  //       telefonoInput,
+  //       correoInput,
+  //       etiquetasInput
+  //     );
+  //     alumnos.push(candidato);
+  //     document.getElementById(`ttabla2`).innerHTML +=
+  //       `<tr class="ttr" id="` +
+  //       candidato.id +
+  //       `">
+  //   <td class="ttdNombre">` +
+  //       nombreInput +
+  //       `</td>
+  //     <td class="ttdCiudad">` +
+  //       ciudadInput +
+  //       `</td>
+  //     <td class="ttdPais">` +
+  //       paisInput +
+  //       `</td>
+  //     <td class="ttdTelefono">` +
+  //       telefonoInput +
+  //       `</td>
+  //     <td class="ttdCorreo">` +
+  //       correoInput +
+  //       `</td>
+  //     <td class="ttdEtiquetas">` +
+  //       `<p class="tetiqueta">` +
+  //       etiquetasInput +
+  //       `</p>` +
+  //       `</td>
+  // </tr>`;
+  //     document.getElementById(`tformulario`).reset();
+  //     mostrarOcultar();
+  //     onclick();
+  //   }
+  // }
 
   // function añadirAlumnos() {
   //   const candidato1 = new Candidato(
@@ -170,12 +169,12 @@ const Tabla = () => {
           `<p class="tetiqueta">` +
           user.etiquetas[0].lenguaje +
           `</p>` +
-          `<p class="tetiqueta">` +
-          user.etiquetas[1].lenguaje +
-          `</p>` +
-          `<p class="tetiqueta">` +
-          user.etiquetas[2].lenguaje +
-          `</p>` +
+          // `<p class="tetiqueta">` +
+          // user.etiquetas[1].lenguaje +
+          // `</p>` +
+          // `<p class="tetiqueta">` +
+          // user.etiquetas[2].lenguaje +
+          // `</p>` +
           `</td>
     </tr>`)
     );
@@ -183,7 +182,6 @@ const Tabla = () => {
   }
   const [add, setAdd] = useState(false);
   const [detalle, setDetalle] = useState(false);
-  const [alumnos, setAlumnos] = useState([]);
   const [alumnosAPI, setAlumnosAPI] = useState([]);
   const [usuariosAPI, setUsuariosAPI] = useState("");
   const [person, setPerson] = useState({
@@ -197,7 +195,7 @@ const Tabla = () => {
     etiquetas: []
   });
 
-  const userLogged = sessionStorage.getItem("usuario");
+  const userLogged = sessionStorage.getItem("email");
 
   const promesa = () => {
       let promise = new Promise((resolve, reject) => {
@@ -212,6 +210,7 @@ const Tabla = () => {
         setAlumnosAPI(respuesta.data.alumnos)
         setUsuariosAPI(respuesta.data.email)
         ordenar();
+        console.log(respuesta.data)
       })
       .catch((error) => {
         alert(error);
@@ -342,9 +341,9 @@ const Tabla = () => {
       }
     }
   }
-  function mostrarOcultar() {
-    setAdd(!add);
-  }
+  // function mostrarOcultar() {
+  //   setAdd(!add);
+  // }
   function onclick() {
     const tabla = document.getElementById("ttabla2");
     for (let i = 0; i < tabla.rows.length; i++) {
@@ -362,7 +361,7 @@ const Tabla = () => {
 
   useEffect(() => {
     promesa();
-  }, []);
+    }, []);
 
   return detalle ? (
     <Alumno
@@ -409,14 +408,6 @@ const Tabla = () => {
             </div>
             <div className="tframe1076" id="divFormulario">
               {add ? <FormAdd /> : <></>}
-              {add ? (
-                <button name="enviar" id="btn" onClick={() => flocal()}>
-                  {" "}
-                  Agregar{" "}
-                </button>
-              ) : (
-                <></>
-              )}
               <table className="tframe1723" id="ttabla">
                 <tbody>
                   <tr className="tframe758">

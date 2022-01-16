@@ -13,8 +13,8 @@ class AlumnoService {
     return http.get(`/alumno/find/findbyemail/${email}`);
   };
 
-  create(alumno) {
-    return http.post("/alumno/save", alumno);
+  create(email, alumno) {
+    return http.post(`/alumno/save/${email}`, alumno);
   }
 
   login(alumno) {

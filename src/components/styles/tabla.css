@@ -303,7 +303,7 @@
   margin: 0px 0px;
 }
 
-.tbutton:hover{
+.tbutton:hover {
   cursor: pointer;
   background-color: #32d5a4;
 }
@@ -1576,4 +1576,39 @@ tr {
 }
 .orden:hover {
   cursor: pointer;
+}
+
+.divpresencialidad {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 5%;
+}
+
+.divtraslado {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+#tpresencialidad {
+  margin-top: 0px;
+  padding: 0px;
+}
+
+#ttraslado {
+  margin-top: 0px;
+  padding: 0px;
+  text-align: center;
+  font-size: 16px;
+  background-color: #03afbb;
+  color: white;
+}
+
+.error{
+  margin: 0px;
+  padding: 0px;
 }
