@@ -1,26 +1,31 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { Formik, Field, Form } from "formik";
 import AlumnoService from "../../service/AlumnoService";
 
 const yupSchema = Yup.object().shape({
-  nombre: Yup.string().min(4, "Incorrecto").required("El nombre es requerido"),
+  nombre: Yup.string().min(4, "Incorrecto").required('Campo obligatorio'),
   email: Yup.string()
     .email("Ingrese un email valido")
     .max(255)
-    .required("El email es requerido "),
-  ciudad: Yup.string().min(2, "Incorrecto"),
-  pais: Yup.string().min(2, "Incorrecto"),
-  telefono: Yup.number("Ingrese un numero valido"),
-  traslado: Yup.bool(),
+    .required('Campo obligatorio'),
+  ciudad: Yup.string().min(2, "Incorrecto").required('Campo obligatorio'),
+  pais: Yup.string().min(2, "Incorrecto").required('Campo obligatorio'),
+  telefono: Yup.number("Ingrese un numero valido").required('Campo obligatorio'),
+  presencialidad: Yup.string().required('Seleccione una opción'),
+  traslado: Yup.bool().required('Seleccione una opción'),
 });
 
+
 const Formadd = () => {
-  let navigate = useNavigate();
+
+const [etiquetas, setEtiquetas] = useState([{
+  id: null,
+  lenguaje: "A"
+}])
 
   let nUsuario = {
-    id: "25",
+    id: "999",
     nombre: "",
     ciudad: "",
     pais: "",
@@ -28,11 +33,8 @@ const Formadd = () => {
     email: "",
     traslado: false,
     presencialidad: "",
-    etiquetas: [{
-      id: null,
-      lenguaje: "REACT"
-    }],
-    usuario: "admin1@admin.com"
+    etiquetas: etiquetas,
+    usuario: sessionStorage.getItem('email')
   };
 
   return (
@@ -42,17 +44,16 @@ const Formadd = () => {
         validationSchema={yupSchema}
         onSubmit={async (values) => {
           console.log(values)
-          await new Promise((r) => setTimeout(r, 500));
-          AlumnoService.create("admin1@admin.com",values)
+          await new Promise((r) => setTimeout(r, 200));
+          AlumnoService.create(sessionStorage.getItem('email'),values)
             .then((response) => {
               alert("Se ha creado el alumno correctamente");
               console.log(response);
-              navigate("../tabla");
             })
             .catch((e) => {
               console.log(e);
             });
-        }}
+        }} 
       >
         {({ errors, handleChange,handleBlur, values, touched }) => (
           <Form className="tform2" id="tformulario">
@@ -108,7 +109,6 @@ const Formadd = () => {
               value={values.telefono}
               onBlur={handleBlur}
             />
-
             <br />
             <p className="error" style={{ color: "black" }}>
               {touched && errors.telefono}
@@ -123,7 +123,6 @@ const Formadd = () => {
               value={values.email}
               onBlur={handleBlur}
             />
-
             <br />
             <p className="error" style={{ color: "black" }}>
               {touched && errors.email}
@@ -162,6 +161,9 @@ const Formadd = () => {
             </div>
             <input id="tpresencialidad" disabled />
             <br />
+            <p className="error" style={{ color: "black" }}>
+              {touched && errors.presencialidad}
+            </p>
             <div className="divtraslado">
             <label>
               <Field
@@ -185,19 +187,25 @@ const Formadd = () => {
                 className="tinput2"
                 type="radio"
                 name="traslado"
-                value={`false`}
+                value={`false`}                
               />No 
             </label>
+            <p className="error" style={{ color: "black" }}>
+              {touched && errors.traslado}
+            </p>
             </div>
             <input id="ttraslado" disabled />
-            <Field
+            <input
               className="tinput2"
               name="etiquetas"
               type="text"
               id="tetiquetas"
               placeholder="Etiquetas"
-              onChange={handleChange}
-
+              onChange={()=>setEtiquetas({
+                id: null,
+                lenguaje: document.getElementById('tetiquetas').value
+              })}
+              // value={etiquetas.lenguaje}
             />
             <br />
             <br />

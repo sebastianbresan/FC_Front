@@ -14,9 +14,7 @@ const Formfiltro = () => {
   <div className="tframe1380">
     <div className="tframe1433">
       <p className="tetiquetas">Etiquetas</p>
-      <select className="tframe1328">
-        <option>Escribe para buscar</option>
-      </select>
+      <input className="tframe1328" placeholder='Escribe para buscar'/>
     </div>
     <div className="tframe1430">
       <div className="tframe1401">

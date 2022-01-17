@@ -473,7 +473,7 @@
 
 .tthCiudad {
   position: static;
-  width: 165px;
+  width: 135px;
   height: 16px;
   left: 300px;
   top: 12px;
@@ -526,7 +526,7 @@
 
 .tthCorreo {
   position: static;
-  width: 215px;
+  width: 265px;
   height: 16px;
   left: 834px;
   top: 12px;
@@ -544,7 +544,7 @@
 
 .tthEtiquetas {
   position: static;
-  width: 230px;
+  width: 350px;
   height: 16px;
   left: 1012px;
   top: 12px;
@@ -613,7 +613,7 @@
 
 .ttdCiudad {
   position: static;
-  width: 165px;
+  width: 135px;
   height: 40px;
   left: 276px;
   top: 0px;
@@ -661,7 +661,7 @@
 
 .ttdCorreo {
   position: static;
-  width: 210px;
+  width: 265px;
   height: 40px;
   left: 810px;
   top: 0px;
@@ -681,7 +681,7 @@
   align-items: center;
   padding: 0px;
   position: static;
-  width: 230px;
+  width: 350px;
   height: 40px;
   left: 988px;
   top: 0px;
@@ -811,7 +811,7 @@
 
 .tetiquetas {
   position: static;
-  width: 282px;
+  width: 8%;
   height: 16px;
   left: 0px;
   top: 0px;
@@ -835,9 +835,9 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 15px;
+  padding-left: 12px;
   position: static;
-  width: 282px;
+  width: 270px;
   height: 40px;
   left: 0px;
   top: 28px;
@@ -1504,7 +1504,7 @@ tr {
 .tform2 > input {
   display: inline-block;
   padding: 8px;
-  width: 68%;
+  width: 80%;
   margin-top: 30px;
   text-align: center;
   border-radius: 8px;

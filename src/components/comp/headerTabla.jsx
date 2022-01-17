@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Headertabla = () => {
+
     return (
       <div>
         <div className="tframe22">
@@ -25,7 +26,7 @@ const Headertabla = () => {
               <div className="tframe1283">
                 <p className="tna">NA</p>
               </div>
-              <p className="tusername">Username</p>
+              <p className="tusername">Admin</p>
             </div>
             <select name="" id="" className="ticon"></select>
           </div>

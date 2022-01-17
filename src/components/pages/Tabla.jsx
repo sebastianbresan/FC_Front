@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
+import Reload from "../images/reload.png";
 import FormAdd from "../comp/formAdd";
 import Formfiltro from "../comp/formFiltro";
 import Headertabla from "../comp/headerTabla";
 import Alumno from "./Alumno";
 import { useNavigate } from "react-router-dom";
-import AlumnoService from "../../service/AlumnoService.js";
 import UsuarioService from "../../service/UsuarioService.js";
 
 const Tabla = () => {
@@ -16,131 +16,78 @@ const Tabla = () => {
   let estadoEmail = false;
   let estadoEtiquetas = false;
 
-  // class Candidato {
-  //   constructor(id, nombre, ciudad, pais, telefono, correo) {
-  //     this.id = id;
-  //     this.nombre = nombre;
-  //     this.ciudad = ciudad;
-  //     this.pais = pais;
-  //     this.telefono = telefono;
-  //     this.correo = correo;
-  //     this.etiquetas = [];
-  //   }
-  // }
+  const [add, setAdd] = useState(false);
+  const [detalle, setDetalle] = useState(false);
+  const [alumnosAPI, setAlumnosAPI] = useState([]);
+  const [usuariosAPI, setUsuariosAPI] = useState("");
+  const [person, setPerson] = useState({
+    nombre: "",
+    ciudad: "",
+    pais: "",
+    telefono: "",
+    email: "",
+    traslado: false,
+    presencialidad: "",
+    etiquetas: [],
+  });
 
-  // function flocal() {
-  //   let nombreInput = document.getElementById(`tnombre`).value;
-  //   let ciudadInput = document.getElementById(`tciudad`).value;
-  //   let paisInput = document.getElementById(`tpais`).value;
-  //   let telefonoInput = document.getElementById(`ttelefono`).value;
-  //   let correoInput = document.getElementById(`tcorreo`).value;
-  //   let etiquetasInput = document.getElementById(`tetiquetas`).value;
-
-  //   if (nombreInput === "") {
-  //     alert("Debe rellenar el nombre correctamente");
-  //   } else if (ciudadInput === "") {
-  //     alert("Debe rellenar la ciudad correctamente");
-  //   } else if (paisInput === "") {
-  //     alert("Debe rellenar el pais correctamente");
-  //   } else if (telefonoInput === "") {
-  //     alert("Debe rellenar el telefono correctamente");
-  //   } else if (correoInput === "") {
-  //     alert("Debe rellenar el email correctamente");
-  //   } else {
-  //     const candidato = new Candidato(
-  //       id,
-  //       nombreInput,
-  //       ciudadInput,
-  //       paisInput,
-  //       telefonoInput,
-  //       correoInput,
-  //       etiquetasInput
-  //     );
-  //     alumnos.push(candidato);
-  //     document.getElementById(`ttabla2`).innerHTML +=
-  //       `<tr class="ttr" id="` +
-  //       candidato.id +
-  //       `">
-  //   <td class="ttdNombre">` +
-  //       nombreInput +
-  //       `</td>
-  //     <td class="ttdCiudad">` +
-  //       ciudadInput +
-  //       `</td>
-  //     <td class="ttdPais">` +
-  //       paisInput +
-  //       `</td>
-  //     <td class="ttdTelefono">` +
-  //       telefonoInput +
-  //       `</td>
-  //     <td class="ttdCorreo">` +
-  //       correoInput +
-  //       `</td>
-  //     <td class="ttdEtiquetas">` +
-  //       `<p class="tetiqueta">` +
-  //       etiquetasInput +
-  //       `</p>` +
-  //       `</td>
-  // </tr>`;
-  //     document.getElementById(`tformulario`).reset();
-  //     mostrarOcultar();
-  //     onclick();
-  //   }
-  // }
-
-  // function añadirAlumnos() {
-  //   const candidato1 = new Candidato(
-  //     1,
-  //     "Esteban Gimenez",
-  //     "Barcelona",
-  //     "España",
-  //     "+34 345 345 345",
-  //     "sbarcelona@gmail.com"
-  //   );
-  //   id++;
-
-  //   candidato1.etiquetas.push(arEtiquetas[0], arEtiquetas[1], arEtiquetas[2]);
-  //   alumnos.push(candidato1);
-  //   const candidato2 = new Candidato(
-  //     2,
-  //     "Juan Martin Gimenez",
-  //     "Madrid",
-  //     "España",
-  //     "+34 432 345 345",
-  //     "smadrid@gmail.com"
-  //   );
-  //   id++;
-  //   candidato2.etiquetas.push(arEtiquetas[3], arEtiquetas[4], arEtiquetas[5]);
-  //   alumnos.push(candidato2);
-  //   const candidato3 = new Candidato(
-  //     3,
-  //     "Jose Rodruigo Diaz",
-  //     "Oviedo",
-  //     "España",
-  //     "+34 444 345 345",
-  //     "soviedo@gmail.com"
-  //   );
-  //   id++;
-  //   candidato3.etiquetas.push(arEtiquetas[2], arEtiquetas[4], arEtiquetas[6]);
-  //   alumnos.push(candidato3);
-  //   const candidato4 = new Candidato(
-  //     4,
-  //     "Pedro Gabriel Machado",
-  //     "Rosario",
-  //     "Argentina",
-  //     "+34 665 345 345",
-  //     "srosario@gmail.com"
-  //   );
-  //   id++;
-  //   candidato4.etiquetas.push(arEtiquetas[6], arEtiquetas[7], arEtiquetas[8]);
-  //   alumnos.push(candidato4);
-  //   ordenar();
-  // }
+  const userLogged = sessionStorage.getItem("email");
 
   function vaciar() {
     document.getElementById("ttabla2").innerHTML = "";
   }
+  function ordenarApi() {
+    UsuarioService.findByEmail(userLogged).then((respuesta) => {
+      setUsuariosAPI(respuesta.data.email);
+      setAlumnosAPI(respuesta.data.alumnos);
+      console.log(respuesta.data.alumnos);
+      vaciar();
+      let tabla = document.getElementById(`ttabla2`);
+      respuesta.data.alumnos.map(
+        (user, i) =>
+          (tabla.innerHTML +=
+            `<tr class="ttr" id="` +
+            i +
+            `">
+        <td class="ttdNombre">` +
+            user.nombre +
+            `</td>
+        <td class="ttdCiudad">` +
+            user.ciudad +
+            `</td>
+        <td class="ttdPais">` +
+            user.pais +
+            `</td>
+        <td class="ttdTelefono">` +
+            user.telefono +
+            `</td>
+        <td class="ttdCorreo">` +
+            user.email +
+            `</td>
+        <td class="ttdEtiquetas" id=` +
+            (user.id + 100) +
+            `></td></tr>`)
+      );
+      for (let i = 0; i < respuesta.data.alumnos.length; i++) {
+        for (let j = 0; j < respuesta.data.alumnos[i].etiquetas.length; j++) {
+          document.getElementById(
+            respuesta.data.alumnos[i].id + 100
+          ).innerHTML +=
+            `<p class="tetiqueta">` +
+            respuesta.data.alumnos[i].etiquetas[j].lenguaje +
+            `</p>`;
+        }
+      }
 
+      for (let i = 0; i < tabla.rows.length; i++) {
+        const doc = document.getElementById(i);
+        doc.onclick = function () {
+          setPerson(respuesta.data.alumnos[i]);
+          setDetalle(true);
+        };
+      }
+    });
+  }
   function ordenar() {
     vaciar();
     let tabla = document.getElementById(`ttabla2`);
@@ -165,58 +112,20 @@ const Tabla = () => {
         <td class="ttdCorreo">` +
           user.email +
           `</td>
-        <td class="ttdEtiquetas">` +
-          `<p class="tetiqueta">` +
-          user.etiquetas[0].lenguaje +
-          `</p>` +
-          // `<p class="tetiqueta">` +
-          // user.etiquetas[1].lenguaje +
-          // `</p>` +
-          // `<p class="tetiqueta">` +
-          // user.etiquetas[2].lenguaje +
-          // `</p>` +
-          `</td>
-    </tr>`)
+          <td class="ttdEtiquetas" id=` +
+          (user.id + 100) +
+          `></td></tr>`)
     );
+    for (let i = 0; i < alumnosAPI.length; i++) {
+      for (let j = 0; j < alumnosAPI[i].etiquetas.length; j++) {
+        document.getElementById(alumnosAPI[i].id + 100).innerHTML +=
+          `<p class="tetiqueta">` +
+          alumnosAPI[i].etiquetas[j].lenguaje +
+          `</p>`;
+      }
+    }
     onclick();
   }
-  const [add, setAdd] = useState(false);
-  const [detalle, setDetalle] = useState(false);
-  const [alumnosAPI, setAlumnosAPI] = useState([]);
-  const [usuariosAPI, setUsuariosAPI] = useState("");
-  const [person, setPerson] = useState({
-    nombre: "",
-    ciudad: "",
-    pais: "",
-    telefono: "",
-    email: "",
-    traslado: false,
-    presencialidad: "",
-    etiquetas: []
-  });
-
-  const userLogged = sessionStorage.getItem("email");
-
-  const promesa = () => {
-      let promise = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        const respuesta = UsuarioService.findByEmail(userLogged);
-        resolve(respuesta);
-        reject("Error en la peticion al servidor");
-      }, 200);
-    });
-    promise
-      .then((respuesta) => {
-        setAlumnosAPI(respuesta.data.alumnos)
-        setUsuariosAPI(respuesta.data.email)
-        ordenar();
-        console.log(respuesta.data)
-      })
-      .catch((error) => {
-        alert(error);
-      });
-    }
-
   function ordenarNombre() {
     vaciar();
     if (!estadoNombre) {
@@ -341,9 +250,17 @@ const Tabla = () => {
       }
     }
   }
-  // function mostrarOcultar() {
-  //   setAdd(!add);
-  // }
+  function mostrarOcultar() {
+    if (!add) {
+      setAdd(!add);
+      document.getElementById("mostrarocultar").innerHTML =
+        "Ocultar Formulario";
+    } else {
+      document.getElementById("mostrarocultar").innerHTML = "Añadir alunmo";
+      setAdd(!add);
+      ordenarApi();
+    }
+  }
   function onclick() {
     const tabla = document.getElementById("ttabla2");
     for (let i = 0; i < tabla.rows.length; i++) {
@@ -360,8 +277,9 @@ const Tabla = () => {
   };
 
   useEffect(() => {
-    promesa();
-    }, []);
+    ordenarApi();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return detalle ? (
     <Alumno
@@ -396,13 +314,18 @@ const Tabla = () => {
               <button className="tbutton" onClick={logout}>
                 Logout
               </button>
-              <button className="tbutton" onClick={()=> promesa()}>
-                Cargar Alumnos
+              <button className="tbutton" onClick={() => ordenarApi()}>
+                Actualizar alumnos
+                <img src={Reload} alt="actualizar" className="aicon" />
               </button>
               <p className="tbutton" disabled>
                 {usuariosAPI}
               </p>
-              <button className="tbutton" onClick={() => setAdd(!add)}>
+              <button
+                className="tbutton"
+                id="mostrarocultar"
+                onClick={() => mostrarOcultar()}
+              >
                 + Añadir alumno
               </button>
             </div>

@@ -10,10 +10,6 @@ const Login = () => {
     password: "",
   };
 
-  let Usuario = {
-    email: "",
-  };
-
   const [user, setUser] = useState(User);
 
   const handleInputChange = (event) => {
@@ -33,6 +29,7 @@ const Login = () => {
       })
       .catch((e) => {
         alert("Credenciales Incorrectas");
+        console.log(e)
       });
   };
 
