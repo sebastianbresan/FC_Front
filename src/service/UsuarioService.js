@@ -32,6 +32,7 @@ class UsuarioService {
   deleteAll() {
     return http.delete("/usuario/delete/deleteall");
   }
+
 }
 
 export default new UsuarioService();

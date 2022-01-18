@@ -5,9 +5,34 @@ import borrar from "../images/borrar.png";
 import cruz from "../images/cruz.png";
 import PropTypes from "prop-types";
 import Tabla from "./Tabla";
+import swal from 'sweetalert';
+import AlumnoService from "../../service/AlumnoService";
+
 
 const Alumno = (props) => {
   const [back, setBack] = useState(false);
+
+  const deleteAlumno = () => {
+    swal({
+      title: "¿Está seguro de eliminar el usuario?",
+      text: "Se eliminará el usuario "+ props.email ,
+      icon: "warning",
+      buttons: ["No", "Si"],
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        AlumnoService.delete(props.id)
+        swal("El usuario "+ props.email + " ha sido eliminado exitosamente", {
+          icon: "success", timer:2000
+        });
+      } else {
+        swal("No se han realizado cambios", {
+          icon: "success", timer:2000
+        });
+      }
+    });
+  }
 
   return !back ? (
     <div className="fondoAlumno">
@@ -106,7 +131,7 @@ const Alumno = (props) => {
                   <p className="apSubir">Subir de nuevo</p>
                   <img src={cloud} alt="cloud" className="aimgSubir" />
                 </button>
-                <button className="aborrar">
+                <button className="aborrar" onClick={deleteAlumno}>
                   <p className="apBorrar">Borrar</p>
                   <img src={borrar} alt="borrar" className="aimgBorrar" />
                 </button>
@@ -140,6 +165,7 @@ const Alumno = (props) => {
 };
 
 Alumno.propTypes = {
+  id: PropTypes.number,
   nombre: PropTypes.string,
   ciudad: PropTypes.string,
   pais: PropTypes.string,

@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import UsuarioService from "../../service/UsuarioService";
 import { useNavigate } from "react-router-dom";
+import swal from 'sweetalert';
 
 const Login = () => {
 
@@ -24,11 +25,22 @@ const Login = () => {
     UsuarioService.login(data)
       .then((response) => {
         sessionStorage.setItem("email", response.data.email);
+        swal({
+          title: "Bienvenido " + sessionStorage.getItem("email"),
+          text: "Cargando base de datos...",
+          icon: "success",
+          timer: 2000
+        })
         setLogged(true);
         navigate("../tabla")
       })
       .catch((e) => {
-        alert("Credenciales Incorrectas");
+        swal({
+          title: "Error de autenticación",
+          text: "Email o contraseña invalidos",
+          icon: "error",
+          timer: 2000
+        })
         console.log(e)
       });
   };

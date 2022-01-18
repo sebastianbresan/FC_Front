@@ -4,11 +4,12 @@ import FormAdd from "../comp/formAdd";
 import Formfiltro from "../comp/formFiltro";
 import Headertabla from "../comp/headerTabla";
 import Alumno from "./Alumno";
-import { useNavigate } from "react-router-dom";
 import UsuarioService from "../../service/UsuarioService.js";
+import Delete from "../images/delete.png";
+import swal from "sweetalert";
+import AlumnoService from "../../service/AlumnoService";
 
 const Tabla = () => {
-  let navigate = useNavigate();
   let estadoNombre = false;
   let estadoCiudad = false;
   let estadoPais = false;
@@ -20,7 +21,9 @@ const Tabla = () => {
   const [detalle, setDetalle] = useState(false);
   const [alumnosAPI, setAlumnosAPI] = useState([]);
   const [usuariosAPI, setUsuariosAPI] = useState("");
+  const [alumnosToDelete, setAlumnosToDelete] = useState([]);
   const [person, setPerson] = useState({
+    id: null,
     nombre: "",
     ciudad: "",
     pais: "",
@@ -43,6 +46,12 @@ const Tabla = () => {
       console.log(respuesta.data.alumnos);
       vaciar();
       let tabla = document.getElementById(`ttabla2`);
+      if(respuesta.data.alumnos < 1){
+        swal("El usuario "+sessionStorage.getItem('email')+" no tiene alumnos asociados", {
+          icon: "info",
+          timer: 2000,
+        });
+      }
       respuesta.data.alumnos.map(
         (user, i) =>
           (tabla.innerHTML +=
@@ -85,6 +94,7 @@ const Tabla = () => {
           setPerson(respuesta.data.alumnos[i]);
           setDetalle(true);
         };
+        alumnosToDelete.push(respuesta.data.alumnos[i].email)
       }
     });
   }
@@ -267,22 +277,57 @@ const Tabla = () => {
       const doc = document.getElementById(i);
       doc.onclick = function () {
         setPerson(alumnosAPI[i]);
+        console.log(person);
         setDetalle(true);
       };
     }
   }
-  const logout = () => {
-    sessionStorage.clear();
-    navigate("../login");
-  };
-
+  function deleteAll() {
+    if(alumnosAPI < 1){
+      swal("El usuario "+sessionStorage.getItem('email')+" no tiene alumnos asociados", {
+        icon: "info",
+        timer: 2000,
+      });
+    }else{
+    swal({
+      title: "¿Está seguro de eliminar todos los alumnos?",
+      text:
+        "Al hacer hacer click en 'Si' se eliminaran todos los alumnos del usuario " +
+        sessionStorage.getItem("email") +
+        " definitivamente y no podrán ser recuperados",
+      icon: "warning",
+      buttons: ["No", "Si"],
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        AlumnoService.deleteallbyuser(alumnosToDelete);
+        swal(
+          "Los alumnos del usuario " +
+            sessionStorage.getItem("email") +
+            " han sido eliminados correctamente",
+          {
+            icon: "success",
+            timer: 2000,
+          }
+        );
+        vaciar();
+      } else {
+        swal("No se han realizado cambios", {
+          icon: "error",
+          timer: 2000,
+        });
+      }
+    });
+  }
+  }
   useEffect(() => {
     ordenarApi();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return detalle ? (
     <Alumno
+      id={person.id}
       nombre={person.nombre}
       ciudad={person.ciudad}
       pais={person.pais}
@@ -311,8 +356,9 @@ const Tabla = () => {
                   onKeyUp={() => buscar()}
                 />
               </div>
-              <button className="tbutton" onClick={logout}>
-                Logout
+              <button className="tbutton" onClick={() => deleteAll()}>
+                Eliminar alumnos
+                <img src={Delete} alt="eliminar" className="aicon" />
               </button>
               <button className="tbutton" onClick={() => ordenarApi()}>
                 Actualizar alumnos

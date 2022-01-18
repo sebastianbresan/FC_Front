@@ -1444,6 +1444,9 @@ tr {
   border-right: 1px;
   cursor: pointer;
 }
+tr:hover {
+  background-color: cornflowerblue;
+}
 
 .tinput::placeholder {
   text-align: center;
@@ -1625,4 +1628,26 @@ tr {
 flex-wrap: wrap;
   flex-grow: 0;
   margin: 5px 0px;
+}
+
+#logout{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 14px 5px 10px;
+  position: static;
+  width: 79px;
+  height: 40px;
+  left: 1178px;
+  top: 0px;
+  background: #ffffff;
+  border: 1px solid #e6e6ea;
+  box-sizing: border-box;
+  border-radius: 8px;
+  flex: none;
+cursor: pointer;
+}
+#logout:hover{
+  background-color: coral;
 }

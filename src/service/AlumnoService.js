@@ -32,6 +32,10 @@ class AlumnoService {
   deleteAll() {
     return http.delete("/alumno/delete/deleteall");
   }
+
+  deleteallbyuser(alumnosToDelete) {
+    return http.post("alumno/delete/deleteallbyuser", alumnosToDelete);
+  }
 }
 
 export default new AlumnoService();

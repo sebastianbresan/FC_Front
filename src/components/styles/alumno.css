@@ -866,6 +866,11 @@
     flex-grow: 0;
     margin: 0px 10px;
   }
+
+  .aborrar:hover{
+    background-color:gray;
+    cursor: pointer;
+  }
   
   .apBorrar {
     position: static;
