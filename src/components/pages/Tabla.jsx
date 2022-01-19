@@ -8,6 +8,7 @@ import UsuarioService from "../../service/UsuarioService.js";
 import Delete from "../images/delete.png";
 import swal from "sweetalert";
 import AlumnoService from "../../service/AlumnoService";
+import { Link } from "react-router-dom";
 
 const Tabla = () => {
   let estadoNombre = false;
@@ -33,7 +34,6 @@ const Tabla = () => {
     presencialidad: "",
     etiquetas: [],
   });
-
   const userLogged = sessionStorage.getItem("email");
 
   function vaciar() {
@@ -43,58 +43,69 @@ const Tabla = () => {
     UsuarioService.findByEmail(userLogged).then((respuesta) => {
       setUsuariosAPI(respuesta.data.email);
       setAlumnosAPI(respuesta.data.alumnos);
-      console.log(respuesta.data.alumnos);
       vaciar();
       let tabla = document.getElementById(`ttabla2`);
-      if(respuesta.data.alumnos < 1){
-        swal("El usuario "+sessionStorage.getItem('email')+" no tiene alumnos asociados", {
-          icon: "info",
-          timer: 2000,
-        });
-      }
-      respuesta.data.alumnos.map(
-        (user, i) =>
-          (tabla.innerHTML +=
-            `<tr class="ttr" id="` +
-            i +
-            `">
+      if (respuesta.data.alumnos < 1) {
+        swal(
+          "El usuario " +
+            sessionStorage.getItem("email") +
+            " no tiene alumnos asociados",
+          {
+            icon: "info",
+            timer: 2000,
+          }
+        );
+      } else if (sessionStorage.getItem("email").length > 1) {
+        swal(
+          "Actualizando alumnos del usuario " + sessionStorage.getItem("email"),
+          {
+            icon: "success",
+            timer: 2000,
+          }
+        );
+        respuesta.data.alumnos.map(
+          (user, i) =>
+            (tabla.innerHTML +=
+              `<tr class="ttr" id="` +
+              i +
+              `">
         <td class="ttdNombre">` +
-            user.nombre +
-            `</td>
+              user.nombre +
+              `</td>
         <td class="ttdCiudad">` +
-            user.ciudad +
-            `</td>
+              user.ciudad +
+              `</td>
         <td class="ttdPais">` +
-            user.pais +
-            `</td>
+              user.pais +
+              `</td>
         <td class="ttdTelefono">` +
-            user.telefono +
-            `</td>
+              user.telefono +
+              `</td>
         <td class="ttdCorreo">` +
-            user.email +
-            `</td>
+              user.email +
+              `</td>
         <td class="ttdEtiquetas" id=` +
-            (user.id + 100) +
-            `></td></tr>`)
-      );
-      for (let i = 0; i < respuesta.data.alumnos.length; i++) {
-        for (let j = 0; j < respuesta.data.alumnos[i].etiquetas.length; j++) {
-          document.getElementById(
-            respuesta.data.alumnos[i].id + 100
-          ).innerHTML +=
-            `<p class="tetiqueta">` +
-            respuesta.data.alumnos[i].etiquetas[j].lenguaje +
-            `</p>`;
+              (user.id + 100) +
+              `></td></tr>`)
+        );
+        for (let i = 0; i < respuesta.data.alumnos.length; i++) {
+          for (let j = 0; j < respuesta.data.alumnos[i].etiquetas.length; j++) {
+            document.getElementById(
+              respuesta.data.alumnos[i].id + 100
+            ).innerHTML +=
+              `<p class="tetiqueta">` +
+              respuesta.data.alumnos[i].etiquetas[j].lenguaje +
+              `</p>`;
+          }
         }
       }
-
       for (let i = 0; i < tabla.rows.length; i++) {
         const doc = document.getElementById(i);
         doc.onclick = function () {
           setPerson(respuesta.data.alumnos[i]);
           setDetalle(true);
         };
-        alumnosToDelete.push(respuesta.data.alumnos[i].email)
+        alumnosToDelete.push(respuesta.data.alumnos[i].email);
       }
     });
   }
@@ -277,48 +288,59 @@ const Tabla = () => {
       const doc = document.getElementById(i);
       doc.onclick = function () {
         setPerson(alumnosAPI[i]);
-        console.log(person);
         setDetalle(true);
       };
     }
   }
   function deleteAll() {
-    if(alumnosAPI < 1){
-      swal("El usuario "+sessionStorage.getItem('email')+" no tiene alumnos asociados", {
-        icon: "info",
-        timer: 2000,
-      });
-    }else{
-    swal({
-      title: "¿Está seguro de eliminar todos los alumnos?",
-      text:
-        "Al hacer hacer click en 'Si' se eliminaran todos los alumnos del usuario " +
-        sessionStorage.getItem("email") +
-        " definitivamente y no podrán ser recuperados",
-      icon: "warning",
-      buttons: ["No", "Si"],
-      dangerMode: true,
-    }).then((willDelete) => {
-      if (willDelete) {
-        AlumnoService.deleteallbyuser(alumnosToDelete);
-        swal(
-          "Los alumnos del usuario " +
-            sessionStorage.getItem("email") +
-            " han sido eliminados correctamente",
-          {
-            icon: "success",
-            timer: 2000,
-          }
-        );
-        vaciar();
-      } else {
-        swal("No se han realizado cambios", {
-          icon: "error",
+    if (alumnosAPI < 1) {
+      swal(
+        "El usuario " +
+          sessionStorage.getItem("email") +
+          " no tiene alumnos asociados",
+        {
+          icon: "info",
           timer: 2000,
-        });
-      }
-    });
+        }
+      );
+    } else {
+      swal({
+        title: "¿Está seguro de eliminar todos los alumnos?",
+        text:
+          "Al hacer hacer click en 'Si' se eliminaran todos los alumnos del usuario " +
+          sessionStorage.getItem("email") +
+          " definitivamente y no podrán ser recuperados",
+        icon: "warning",
+        buttons: ["No", "Si"],
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          AlumnoService.deleteallbyuser(alumnosToDelete);
+          swal(
+            "Los alumnos del usuario " +
+              sessionStorage.getItem("email") +
+              " han sido eliminados correctamente",
+            {
+              icon: "success",
+              timer: 2000,
+            }
+          );
+          vaciar();
+        } else {
+          swal("No se han realizado cambios", {
+            icon: "error",
+            timer: 2000,
+          });
+        }
+      });
+    }
   }
+  function noLogged() {
+    swal("Debe loguerase para acceder a esta pagina", {
+      icon: "error",
+      timer: 2000,
+    });
+    return <Link to="/login"></Link>;
   }
   useEffect(() => {
     ordenarApi();
@@ -337,7 +359,7 @@ const Tabla = () => {
       traslado={person.traslado}
       etiquetas={person.etiquetas}
     />
-  ) : (
+  ) : sessionStorage.getItem("email") ? (
     <div>
       <header>
         <Headertabla />
@@ -414,6 +436,8 @@ const Tabla = () => {
         </div>
       </div>
     </div>
+  ) : (
+    noLogged()
   );
 };
 

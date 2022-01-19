@@ -36,11 +36,11 @@ const Formadd = () => {
 
   let java = false;
   let html = false;
-  let javascrypt = false;
+  let javascript = false;
   let react = false;
   let spring = false;
   let python = false;
-  let typescrypt = false;
+  let typescript = false;
   let angular = false;
   let github = false;
 
@@ -66,11 +66,11 @@ const Formadd = () => {
     document.getElementById("tformulario").reset();
     java = false;
     html = false;
-    javascrypt = false;
+    javascript = false;
     react = false;
     spring = false;
     python = false;
-    typescrypt = false;
+    typescript = false;
     angular = false;
     github = false;
     document.getElementById("check1").checked = false;
@@ -302,14 +302,14 @@ const Formadd = () => {
                 <input
                   id="check3"
                   type="checkbox"
-                  value="JAVASCRYPT"
+                  value="JAVASCRIPT"
                   onChange={() =>
-                    !javascrypt
-                      ? (addEtiqueta("JAVASCRYPT"), (javascrypt = true))
-                      : (deleteEtiqueta("JAVASCRYPT"), (javascrypt = false))
+                    !javascript
+                      ? (addEtiqueta("JAVASCRIPT"), (javascript = true))
+                      : (deleteEtiqueta("JAVASCRIPT"), (javascript = false))
                   }
                 />
-                JAVASCRYPT
+                JAVASCRIPT
               </label>
               <label id="checketiquetas">
                 <input
@@ -384,9 +384,9 @@ const Formadd = () => {
                   type="checkbox"
                   value="TYPESCRIPT"
                   onChange={() =>
-                    !typescrypt
-                      ? (addEtiqueta("TYPESCRIPT"), (typescrypt = true))
-                      : (deleteEtiqueta("TYPESCRIPT"), (typescrypt = false))
+                    !typescript
+                      ? (addEtiqueta("TYPESCRIPT"), (typescript = true))
+                      : (deleteEtiqueta("TYPESCRIPT"), (typescript = false))
                   }
                 />
                 TYPESCRIPT

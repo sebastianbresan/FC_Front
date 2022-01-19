@@ -7,17 +7,16 @@ import "./components/styles/alumno.css";
 
 function App() {
 
-
   return (
     <div className="App"> 
     <Routes>
-     <Route path="/tabla" element={<Tabla/>} />
-     <Route path="/login" element={<Login/>} />
-     <Route path="/" element={<Tabla />} />
+     <Route path="/tabla" element={ !sessionStorage.getItem('email') ? <Tabla/> : <Login />} />
+     <Route exact path="/login" element={<Login/>} />
+     <Route exact path="/" element={ !sessionStorage.getItem('email') ?  null: <Login />} /> 
      </Routes> 
        <Login />
     </div>
   );
 }
 
-export default App;
+export default App; 
