@@ -6,11 +6,11 @@
 }
 
 .tframe22 {
+  position:fixed;
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 0px 40px 12px;
-  position: fixed;
   width: 1920px;
   height: 65px;
   right: 0px;

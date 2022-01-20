@@ -20,10 +20,10 @@ const Headertabla = () => {
           icon: "success", timer:2000
         })
         sessionStorage.clear();
-        navigate("../login");
+        navigate("/");
       } else {
         swal("Regresando ....", {
-          icon: "info", timer:1500
+          icon: "success", timer:2000
         })
       }
     });

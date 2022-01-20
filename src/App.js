@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Login from './components/pages/Login';
 import Tabla from './components/pages/Tabla';
 import "./components/styles/login.css";
@@ -10,11 +10,10 @@ function App() {
   return (
     <div className="App"> 
     <Routes>
-     <Route path="/tabla" element={ !sessionStorage.getItem('email') ? <Tabla/> : <Login />} />
-     <Route exact path="/login" element={<Login/>} />
-     <Route exact path="/" element={ !sessionStorage.getItem('email') ?  null: <Login />} /> 
+     <Route path="/tabla" element={<Tabla/>}/>
+     <Route path="/login" element= {<Navigate to="/"/>}/>
+     <Route path="/" element={ <Login/>} /> 
      </Routes> 
-       <Login />
     </div>
   );
 }

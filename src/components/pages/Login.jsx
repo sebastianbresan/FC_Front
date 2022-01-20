@@ -4,7 +4,7 @@ import UsuarioService from "../../service/UsuarioService";
 import { useNavigate } from "react-router-dom";
 import swal from 'sweetalert';
 
-const Login = () => {
+const Login = (props) => {
   
   let User = {
     email: "",
@@ -24,7 +24,9 @@ const Login = () => {
     const data = { email: user.email, password: user.password };
     UsuarioService.login(data)
       .then((response) => {
+        console.log(response);
         sessionStorage.setItem("email", response.data.email);
+        sessionStorage.setItem("token", response.data.token);
         swal({
           title: "Bienvenido " + sessionStorage.getItem("email"),
           text: "Cargando base de datos...",
@@ -47,7 +49,7 @@ const Login = () => {
 
   const [logged, setLogged] = useState(false);
 
-  return !logged ? (
+  return !logged || !sessionStorage.getItem('token') ? (
     <div className="login">
       <div className="text">
       <div className="frame1223">

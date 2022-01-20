@@ -49,7 +49,6 @@ const Formadd = () => {
       id: null,
       lenguaje: etiqueta,
     });
-    console.log(usuario.etiquetas);
   };
 
   const deleteEtiqueta = (etiqueta) => {

@@ -6,36 +6,53 @@ class AlumnoService {
   }
 
   findById = (id) => {
-    return http.get(`/alumno/find/findbyid/${id}`);
+    return http.get(`/alumno/find/findbyid/${id}`, {
+      headers: {
+        Authorization: `Bearer `+sessionStorage.getItem('token'),
+      }});
   };
 
   findByEmail = (email) => {
-    return http.get(`/alumno/find/findbyemail/${email}`);
+    return http.get(`/alumno/find/findbyemail/${email}`, {
+      headers: {
+        Authorization: `Bearer `+sessionStorage.getItem('token'),
+      }});
   };
 
   create(email, alumno) {
-    return http.post(`/alumno/save/${email}`, alumno);
-  }
-
-  login(alumno) {
-    return http.post("/login", alumno);
-  }
+    return http.post(`/alumno/save/${email}`, alumno, {
+      headers: {
+        Authorization: `Bearer `+sessionStorage.getItem('token'),
+      }});
+  };
 
   update(data) {
-    return http.put("/alumno/update", data);
-  }
+    return http.put("/alumno/update", data, {
+      headers: {
+        Authorization: `Bearer `+sessionStorage.getItem('token'),
+      }});
+  };
 
   delete(id) {
-    return http.delete(`/alumno/delete/deletebyid/${id}`);
-  }
+    return http.delete(`/alumno/delete/deletebyid/${id}`, {
+      headers: {
+        Authorization: `Bearer `+sessionStorage.getItem('token'),
+      }});
+  };
 
   deleteAll() {
-    return http.delete("/alumno/delete/deleteall");
-  }
+    return http.delete("/alumno/delete/deleteall", {
+      headers: {
+        Authorization: `Bearer `+sessionStorage.getItem('token'),
+      }});
+  };
 
   deleteallbyuser(alumnosToDelete) {
-    return http.post("alumno/delete/deleteallbyuser", alumnosToDelete);
-  }
+    return http.post("alumno/delete/deleteallbyuser", alumnosToDelete, {
+      headers: {
+        Authorization: `Bearer `+sessionStorage.getItem('token'),
+      }});
+  };
 }
 
 export default new AlumnoService();
