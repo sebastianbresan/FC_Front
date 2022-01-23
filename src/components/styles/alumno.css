@@ -1214,3 +1214,6 @@
     cursor: pointer;
     background-color: #32d5a4;
   }
+  body{
+    margin: 0px;
+  }

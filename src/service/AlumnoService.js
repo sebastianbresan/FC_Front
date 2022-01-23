@@ -47,12 +47,14 @@ class AlumnoService {
       }});
   };
 
-  deleteallbyuser(alumnosToDelete) {
-    return http.post("alumno/delete/deleteallbyuser", alumnosToDelete, {
+  deleteallbyuser(email) {
+    return http.delete(`alumno/delete/deleteallbyuser/${email}`, {
       headers: {
         Authorization: `Bearer `+sessionStorage.getItem('token'),
       }});
   };
+
+
 }
 
 export default new AlumnoService();

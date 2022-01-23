@@ -99,7 +99,6 @@ const Formadd = () => {
                 icon: "success",
                 timer: 3000,
               });
-              console.log(response);
               reset();
             })
             .catch((e) => {

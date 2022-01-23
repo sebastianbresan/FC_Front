@@ -27,7 +27,6 @@ const Tabla = () => {
   const [detalle, setDetalle] = useState(false);
   const [alumnosAPI, setAlumnosAPI] = useState([]);
   const [usuariosAPI, setUsuariosAPI] = useState("");
-  const [alumnosToDelete, setAlumnosToDelete] = useState([]);
   const [alumnosFiltro, setAlumnosFiltro] = useState([]);
   const [person, setPerson] = useState({
     id: null,
@@ -65,10 +64,10 @@ const Tabla = () => {
         );
       } else if (sessionStorage.getItem("email").length > 1) {
         swal(
-          "Actualizando alumnos del usuario " + sessionStorage.getItem("email"),
+          "Alumnos del usuario " + sessionStorage.getItem("email") + " actualizados",
           {
             icon: "success",
-            timer: 2000,
+            timer: 1500,
           }
         );
         respuesta.data.alumnos.map(
@@ -113,7 +112,6 @@ const Tabla = () => {
           setPerson(respuesta.data.alumnos[i]);
           setDetalle(true);
         };
-        alumnosToDelete.push(respuesta.data.alumnos[i].email);
       }
     });
   }
@@ -345,7 +343,7 @@ const Tabla = () => {
         dangerMode: true,
       }).then((willDelete) => {
         if (willDelete) {
-          AlumnoService.deleteallbyuser(alumnosToDelete);
+          AlumnoService.deleteallbyuser(sessionStorage.getItem("email"));
           swal(
             "Los alumnos del usuario " +
               sessionStorage.getItem("email") +
@@ -368,14 +366,15 @@ const Tabla = () => {
   function trasladoSi() {
     alumnosFiltro.length = 0;
     if (!estadoTrasladoSi) {
-      alumnosAPI.map((user) => {
+      alumnosAPI.forEach((user) => {
+        
         if (user.traslado) {
           alumnosFiltro.push(user);
         }
       });
       vaciar();
       let tabla = document.getElementById(`ttabla2`);
-      alumnosFiltro.map(
+      alumnosFiltro.forEach(
         (user, i) =>
           (tabla.innerHTML +=
             `<tr class="ttr" id="` +
@@ -413,19 +412,20 @@ const Tabla = () => {
     } else {
       ordenar();
       estadoTrasladoSi = false;
-    }
+      
+    }return
   }
   function trasladoNo() {
     alumnosFiltro.length = 0;
     if (!estadoTrasladoNo) {
-      alumnosAPI.map((user) => {
+      alumnosAPI.forEach((user) => {
         if (!user.traslado) {
           alumnosFiltro.push(user);
         }
       });
       vaciar();
       let tabla = document.getElementById(`ttabla2`);
-      alumnosFiltro.map(
+      alumnosFiltro.forEach(
         (user, i) =>
           (tabla.innerHTML +=
             `<tr class="ttr" id="` +
@@ -463,19 +463,20 @@ const Tabla = () => {
     } else {
       ordenar();
       estadoTrasladoNo = false;
+     
     }
   }
   function presencialidadSi() {
     alumnosFiltro.length = 0;
     if (!estadoPresencialidadSi) {
-      alumnosAPI.map((user) => {
-        if (user.presencialidad === "PRESENCIAL") {
+      alumnosAPI.forEach((user) => {
+        if (user.presencialidad === "PRESENCIAL" || user.presencialidad === "MIXTO") {
           alumnosFiltro.push(user);
         }
       });
       vaciar();
       let tabla = document.getElementById(`ttabla2`);
-      alumnosFiltro.map(
+      alumnosFiltro.forEach(
         (user, i) =>
           (tabla.innerHTML +=
             `<tr class="ttr" id="` +
@@ -518,14 +519,14 @@ const Tabla = () => {
   function presencialidadNo() {
     alumnosFiltro.length = 0;
     if (!estadoPresencialidadNo) {
-      alumnosAPI.map((user) => {
-        if (user.presencialidad === "REMOTO") {
+      alumnosAPI.forEach((user) => {
+        if (user.presencialidad === "REMOTO" || user.presencialidad === "MIXTO") {
           alumnosFiltro.push(user);
         }
       });
       vaciar();
       let tabla = document.getElementById(`ttabla2`);
-      alumnosFiltro.map(
+      alumnosFiltro.forEach(
         (user, i) =>
           (tabla.innerHTML +=
             `<tr class="ttr" id="` +

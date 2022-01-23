@@ -8,7 +8,6 @@ import Tabla from "./Tabla";
 import swal from 'sweetalert';
 import AlumnoService from "../../service/AlumnoService";
 
-
 const Alumno = (props) => {
   const [back, setBack] = useState(false);
 
