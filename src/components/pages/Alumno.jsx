@@ -3,9 +3,10 @@ import ubicacion from "../images/ubicacion.png";
 import cloud from "../images/cloud.png";
 import borrar from "../images/borrar.png";
 import cruz from "../images/cruz.png";
+import check from "../images/check.png";
 import PropTypes from "prop-types";
 import Tabla from "./Tabla";
-import swal from 'sweetalert';
+import swal from "sweetalert";
 import AlumnoService from "../../service/AlumnoService";
 
 const Alumno = (props) => {
@@ -14,24 +15,64 @@ const Alumno = (props) => {
   const deleteAlumno = () => {
     swal({
       title: "¿Está seguro de eliminar el usuario?",
-      text: "Se eliminará el usuario "+ props.email ,
+      text: "Se eliminará el usuario " + props.email,
       icon: "warning",
       buttons: ["No", "Si"],
       dangerMode: true,
-    })
-    .then((willDelete) => {
+    }).then((willDelete) => {
       if (willDelete) {
-        AlumnoService.delete(props.id)
-        swal("El usuario "+ props.email + " ha sido eliminado exitosamente", {
-          icon: "success", timer:2000
+        AlumnoService.delete(props.id);
+        swal("El usuario " + props.email + " ha sido eliminado exitosamente", {
+          icon: "success",
+          timer: 2000,
         });
       } else {
         swal("No se han realizado cambios", {
-          icon: "success", timer:2000
+          icon: "success",
+          timer: 2000,
         });
       }
     });
-  }
+  };
+  const updateAlumno = () => {
+    swal({
+      title: "¿Está seguro de asignar el alumno?",
+      text:
+        "Se asignará al usuario " +
+        sessionStorage.getItem("email") +
+        " el alumno " +
+        props.email,
+      icon: "warning",
+      buttons: ["No", "Si"],
+      dangerMode: true,
+    }).then((add) => {
+      if (add) {
+        AlumnoService.updateByEmail(sessionStorage.getItem("email"), props.id)
+          .then((respuesta) => {
+            swal(
+              "El alumno " + props.email + " ha sido asignado exitosamente",
+              {
+                icon: "success",
+                timer: 2000,
+              }
+            );
+          })
+          .catch((e) => {
+            swal({
+              title: "Error en la peticion",
+              text: "No se han realizado cambios",
+              icon: "error",
+              timer: 2000,
+            });
+          });
+      } else {
+        swal("No se han realizado cambios", {
+          icon: "success",
+          timer: 2000,
+        });
+      }
+    });
+  };
 
   return !back ? (
     <div className="fondoAlumno">
@@ -63,7 +104,11 @@ const Alumno = (props) => {
           <div className="aframe2041">
             <div className="aframe1433">
               <p className="anombreYApellidos">Nombre y Apellidos</p>
-              <input className="aframe1328" defaultValue={props.nombre} />
+              <input
+                className="aframe1328"
+                defaultValue={props.nombre}
+                disabled
+              />
             </div>
             <div className="aframe2038">
               <div className="aframe14332">
@@ -72,6 +117,7 @@ const Alumno = (props) => {
                   type="text"
                   className="aframe13282"
                   defaultValue={props.telefono}
+                  disabled
                 />
               </div>
               <div className="aframe2023">
@@ -80,6 +126,7 @@ const Alumno = (props) => {
                   type="text"
                   className="aframe13283"
                   defaultValue={props.email}
+                  disabled
                 />
               </div>
             </div>
@@ -91,6 +138,7 @@ const Alumno = (props) => {
                   id="pais"
                   className="aframe13284"
                   defaultValue={props.pais}
+                  disabled
                 />
               </div>
               <div className="aframe2027">
@@ -99,6 +147,7 @@ const Alumno = (props) => {
                   name="ciudad"
                   id="ciudad"
                   className="aframe13285"
+                  disabled
                   defaultValue={props.ciudad}
                 />
               </div>
@@ -110,7 +159,8 @@ const Alumno = (props) => {
                   name="traslado"
                   id="traslado"
                   className="aframe13286"
-                  defaultValue={props.traslado? "Si" : "No"}
+                  defaultValue={props.traslado ? "Si" : "No"}
+                  disabled
                 />
               </div>
               <div className="aframe2025">
@@ -120,6 +170,7 @@ const Alumno = (props) => {
                   id="presencialidad"
                   className="aframe13287"
                   defaultValue={props.presencialidad}
+                  disabled
                 />
               </div>
             </div>
@@ -133,6 +184,10 @@ const Alumno = (props) => {
                 <button className="aborrar" onClick={deleteAlumno}>
                   <p className="apBorrar">Borrar</p>
                   <img src={borrar} alt="borrar" className="aimgBorrar" />
+                </button>
+                <button className="aborrar" onClick={updateAlumno}>
+                  <p className="apBorrar">Asignar</p>
+                  <img src={check} alt="borrar" className="aimgBorrar" />
                 </button>
               </div>
             </div>

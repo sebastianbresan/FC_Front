@@ -363,6 +363,66 @@ const Tabla = () => {
       });
     }
   }
+  function findAllWithoutUser() {
+
+      AlumnoService.findAllWithoutUser().then((respuesta) => {
+        if (respuesta.data < 1) {
+          swal(
+            "No hay ningun alumno sin usuario asignado",
+            {
+              icon: "info",
+              timer: 2000,
+            }
+          );
+        } else  {
+          setAlumnosAPI(respuesta.data);
+          vaciar();
+          let tabla = document.getElementById(`ttabla2`);
+          respuesta.data.map(
+            (user, i) =>
+              (tabla.innerHTML +=
+                `<tr class="ttr" id="` +
+                i +
+                `">
+          <td class="ttdNombre">` +
+                user.nombre +
+                `</td>
+          <td class="ttdCiudad">` +
+                user.ciudad +
+                `</td>
+          <td class="ttdPais">` +
+                user.pais +
+                `</td>
+          <td class="ttdTelefono">` +
+                user.telefono +
+                `</td>
+          <td class="ttdCorreo">` +
+                user.email +
+                `</td>
+          <td class="ttdEtiquetas" id=` +
+                (user.id + 100) +
+                `></td></tr>`)
+          );
+          for (let i = 0; i < respuesta.data.length; i++) {
+            for (let j = 0; j < respuesta.data[i].etiquetas.length; j++) {
+              document.getElementById(
+                respuesta.data[i].id + 100
+              ).innerHTML +=
+                `<p class="tetiqueta">` +
+                respuesta.data[i].etiquetas[j].lenguaje +
+                `</p>`;
+            }
+          }
+        
+        for (let i = 0; i < tabla.rows.length; i++) {
+          const doc = document.getElementById(i);
+          doc.onclick = function () {
+            setPerson(respuesta.data[i]);
+            setDetalle(true);
+          };
+        }
+      }});
+  }
   function trasladoSi() {
     alumnosFiltro.length = 0;
     if (!estadoTrasladoSi) {
@@ -614,13 +674,14 @@ const Tabla = () => {
                 Eliminar alumnos
                 <img src={Delete} alt="eliminar" className="aicon" />
               </button>
-              <button className="tbutton" onClick={() => ordenarApi()}>
-                Actualizar alumnos
+              <button className="tbutton" onClick={() => findAllWithoutUser()}>
+                Ver alumnos sin Usuario
                 <img src={Reload} alt="actualizar" className="aicon" />
               </button>
-              <p className="tbutton" disabled>
-                {sessionStorage.getItem("email")}
-              </p>
+              <button className="tbutton" onClick={() => ordenarApi()}>
+                Ver alumnos de {sessionStorage.getItem("email")}
+                <img src={Reload} alt="actualizar" className="aicon" />
+              </button>
               <button
                 className="tbutton"
                 id="mostrarocultar"

@@ -5,6 +5,13 @@ class AlumnoService {
     return http.get("/alumno/find/findall");
   }
 
+  findAllWithoutUser() {
+    return http.get("/alumno/find/findallwithoutuser", {
+      headers: {
+        Authorization: `Bearer `+sessionStorage.getItem('token'),
+      }});
+  };
+
   findById = (id) => {
     return http.get(`/alumno/find/findbyid/${id}`, {
       headers: {
@@ -26,8 +33,8 @@ class AlumnoService {
       }});
   };
 
-  update(data) {
-    return http.put("/alumno/update", data, {
+  updateByEmail(email, id) {
+    return http.put(`/alumno/update/${id}`, email, {
       headers: {
         Authorization: `Bearer `+sessionStorage.getItem('token'),
       }});
