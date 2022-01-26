@@ -89,7 +89,6 @@ const Formadd = () => {
         initialValues={usuario}
         validationSchema={yupSchema}
         onSubmit={async (values) => {
-          console.log(values);
           await new Promise((r) => setTimeout(r, 200));
           AlumnoService.create(sessionStorage.getItem("email"), values)
             .then((response) => {

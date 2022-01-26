@@ -24,7 +24,6 @@ const Login = (props) => {
     const data = { email: user.email, password: user.password };
     UsuarioService.login(data)
       .then((response) => {
-        console.log(response.data);
         sessionStorage.setItem("email", response.data.email);
         sessionStorage.setItem("token", response.data.token);
         swal({

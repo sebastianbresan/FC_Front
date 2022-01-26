@@ -61,6 +61,14 @@ class AlumnoService {
       }});
   };
 
+  update(data) {
+    return http.put("/alumno/update/", data, {
+      headers: {
+        Authorization: `Bearer `+sessionStorage.getItem('token'),
+      }});
+  };
+
+
 
 }
 

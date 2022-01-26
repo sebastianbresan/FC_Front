@@ -3,7 +3,7 @@
   width: 1920px;
   height: 900px;
   background: #f8f8f9;
-  margin: 0;
+  margin-top: 10px;
   padding: 0;
   border: 0;
 }
@@ -33,7 +33,7 @@
     padding: 0px 0px 0px 0px;
     position: static;
     width: 500px;
-    height: 730px;
+    height: 718px;
     left: 0px;
     top: 0px;
     background: #ffffff;
@@ -874,10 +874,8 @@
   
   .apBorrar {
     position: static;
-    width: 46px;
+    width: 49px;
     height: 18px;
-    left: 41px;
-    top: 11px;
     font-family: Raleway;
     font-style: normal;
     font-weight: bold;
@@ -885,8 +883,6 @@
     line-height: 18px;
     font-feature-settings: "pnum" on, "lnum" on;
     color: #121625;
-    flex: none;
-    order: 1;
     flex-grow: 0;
     margin: 0px 10px;
   }
@@ -927,7 +923,7 @@
     padding: 0px;
     position: static;
     width: 452px;
-    height: 68px;
+    height: 15px;
     left: 0px;
     top: 0px;
     flex: none;
@@ -980,8 +976,7 @@
   
   .aframe1430 {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     padding: 0px;
     position: static;
     width: 452px;
@@ -993,6 +988,8 @@
     align-self: stretch;
     flex-grow: 0;
     margin: 25px 0px 0px 20px;
+    flex-direction: column;
+    align-content: stretch;
   }
   
   .aframe1401 {
@@ -1004,7 +1001,7 @@
     padding: 0px;
     position: static;
     width: 452px;
-    height: 90px;
+    height: 80px;
     left: 0px;
     top: 0px;
     flex: none;
@@ -1217,3 +1214,31 @@
   body{
     margin: 0px;
   }
+
+  .acciones{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: static;
+    width: 103px;
+    height: 24px;
+    left: 0px;
+    top: 0px;
+    border-radius: 20px;
+    flex: none;
+
+  }
+.visor{
+    width: 65%;
+    height: 718px;
+    margin: 10px;
+    margin-top: 0px;
+    left: auto;
+    border-radius: 16px;
+}
+
+.asubir:hover{
+  cursor: pointer;
+  background: #e6e6ea;
+}
